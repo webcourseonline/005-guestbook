@@ -44,13 +44,7 @@
 
     </div>
     <div class = "data">
-        <?php
-        foreach ($savedMassages as $id => $record) {?>
-            <div class = "data">
-                <p class = "time text-lead text-primary"><?php echo $record->time; ?></p>
-                <p class = "massage text-justify"><?php echo $record->massage; ?></p>
-            </div>
-        <?php } ?>
+
     </div>
 
     <div class="tab-content">
