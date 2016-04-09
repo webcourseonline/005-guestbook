@@ -40,6 +40,24 @@
         </div>
     </form>
 
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        Enter a valid email address
+        <?php
+        $error ['validName'];
+        $error ['validEmail'];
+        $error ['validMessage'];
+        $error ['date'];
+
+        foreach ($errors as $error)
+            echo $error;
+
+        ?>
+    </div>
+
+
+
     <div class = "data">
 
     </div>
