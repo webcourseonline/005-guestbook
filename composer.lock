@@ -4,13 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "hash": "60d6aee323a11f5dd9b54ec24a05d0a3",
-    "content-hash": "f6e76187783ffee13291d0e38b94676a",
-=======
     "hash": "b7bb22156604915f3a20ecf2abb5d3bc",
     "content-hash": "4d60ba805ccdfd3b2813330af20c8bcd",
->>>>>>> e9fc02b34cbbec072f650d9f1ba4b9c2b3ce8b93
     "packages": [
         {
             "name": "codeception/codeception",
