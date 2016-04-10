@@ -52,13 +52,14 @@
     </div>
     <div class = "data">
         <?php //надо красиво оформить!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        if(isset($data)){
         foreach($data as $data1){?>
 
             <?php echo $data1['name']; ?>
             <?php echo $data1['email']; ?>
             <?php echo $data1['date']; ?>
             <?php echo $data1['message']. "<br>"; ?>
-        <?php } ?>
+        <?php }     }?>
     </div>
 
     <div class="tab-content">
