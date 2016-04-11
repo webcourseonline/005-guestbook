@@ -1,4 +1,10 @@
 {
+    "config": {
+        "bin-dir": "bin",
+        "github-oauth": {
+            "github.com": "8c80a5671e4e3fe03221877f983cb3f1960fe8ac"
+        }
+    },
     "require": {
         "usmanhalalit/pixie": "2.*@dev",
         "twbs/bootstrap": "v3.3.6"
