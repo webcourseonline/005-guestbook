@@ -13,8 +13,9 @@ services:
 
 cache:
   directories:
-    - vendor
     - $HOME/.composer/cache
+    - bin
+    - vendor
 
 install:
   - composer self-update
