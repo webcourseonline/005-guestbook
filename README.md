@@ -1,4 +1,4 @@
-# 005-guestbook [![Latest Stable](https://poser.pugx.org/Codeception/Codeception/version.png)](https://github.com/webcourseonline/005-guestbook) [![Total Downloads](https://poser.pugx.org/codeception/codeception/downloads.png)](https://packagist.org/packages/codeception/codeception)
+# 005-guestbook [![Latest Stable](https://travis-ci.org/webcourseonline/005-guestbook.svg?branch=master)](https://github.com/webcourseonline/005-guestbook)
 
 ## Install
 
