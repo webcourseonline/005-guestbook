@@ -18,7 +18,7 @@
 <div class ="container">
     <?php
     //надо красиво оформить
-    if(isset($error)){
+    if(isset($error['notdata'])){
         echo $error['notdata'];
     }
 

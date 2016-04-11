@@ -1,7 +1,6 @@
 {
     "require": {
-        "dibi/dibi": "^3.0",
         "twbs/bootstrap": "v3.3.6",
-        "codeception/codeception": "*"
+        "usmanhalalit/pixie": "2.*@dev"
     }
 }
