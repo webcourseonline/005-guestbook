@@ -10,7 +10,7 @@ $config = array(
     'host'      => '127.0.0.1',
     'database'  => 'guestbook',
     'username'  => 'root',
-    'password'  => 'roman',//'test123',
+    'password'  => 'test123',//'test123',
     'charset'   => 'utf8', // Optional
     'collation' => 'utf8_general_ci', // Optional
     'prefix'    => '', // Table prefix, optional
@@ -58,6 +58,15 @@ function save(array $data){
 }
 
 
+// test data to check save() method in DB
+//$data = array(
+//    'date'=> date("Y-m-d"),
+//    'name'=>'1N',
+//    'email' =>'2N',
+//    'message' => '3N'
+//);
+//$result = save($data);
+
 /**
  * loads data from db
  *
@@ -86,8 +95,24 @@ function save(array $data){
  * )
  */
 
-function load(){
+function load()
+{
     global $qb;
-    $data_db=$qb->table('posts')->get();
-    return $data_db;
+    $data_db = $qb->table('posts')->get();
+
+    $arrayOfArrays = array();
+
+    foreach ($data_db as $dataRaw) {
+        $objectsIntoArray = get_object_vars($dataRaw);
+        $arrayOfArrays[] = $objectsIntoArray;
+    }
+
+    $posts = array_reverse($arrayOfArrays);
+    return $posts;
 }
+
+//returns array of arrays (posts)
+$posts=load();
+var_dump($posts);
+
+
