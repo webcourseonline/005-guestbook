@@ -25,27 +25,29 @@
 //        'message' => '3ot'
 //    ),
 //);
-//include_once("model.php");
-//include_once ("template.php");
+include_once("model.php");
+
 $error = [];
 
 //функция на валидацию данных от пользователя и сохранение вбазу данных
 if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['massage']) && !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) === false){
         echo "<h3>Данные будут сохранены </h3>";//это пока просто для примера
-        $date = array(
+        $data1 = array(
             'email' => $_POST['email'],
             'name' =>  $_POST['name'],
-            'message' => $_POST['message'],
+            'message' => $_POST['massage'],
+            'date' => date("Y-m-d H:i:s"),
         );
+    save($data1);
 }else{
-    $error["notdata"] = "Поля введены не верно";
+    $error["notdata"] = "Fields entered incorrectly";
 }
+
+$data = load();
 require_once ("template.php");
-
-
 //из базы данных вывод на страницу
 
-//$data = load();
+
 
 
 

@@ -10,7 +10,8 @@ $config = array(
     'host'      => '127.0.0.1',
     'database'  => 'guestbook',
     'username'  => 'root',
-    'password'  => 'test123',
+    'password'  => 'test123',//'test123',
+
     'charset'   => 'utf8', // Optional
     'collation' => 'utf8_general_ci', // Optional
     'prefix'    => '', // Table prefix, optional
@@ -28,9 +29,9 @@ $connection = new \Pixie\Connection('mysql', $config);
  *
  * <code>
  * $data = array(
+ *      'date'=> date("Y-m-d"),
  *      'name'=>'1N',
  *      'email' =>'2N',
- *      'date'=> date("Y-m-d"),
  *      'message' => '3N'
  * );
  * $result = save($data);
@@ -40,11 +41,13 @@ $connection = new \Pixie\Connection('mysql', $config);
  * @return bool
  */
 
+
+
+
 $qb = new \Pixie\QueryBuilder\QueryBuilderHandler($connection);
 
 function save(array $data){
 
-    global $connection;
     global $qb;
 
     try {
@@ -52,31 +55,65 @@ function save(array $data){
     } catch (Exception $e) {
        return array('error' => $e->getMessage());
     }
-
-
     return true;
 }
 
-$result = save($data);
+
+// test data to check save() method in DB
+//$data = array(
+//    'date'=> date("Y-m-d"),
+//    'name'=>'1N',
+//    'email' =>'2N',
+//    'message' => '3N'
+//);
+//$result = save($data);
 
 /**
  * loads data from db
  *
- * @return array
+ * @return array $loadData
+ * <code>
+ * $loadData=load();
+ * <code>
+ * getting data in array objects $loadData
+ *
+ * $loadData = array(
+ *  object 0 (
+ * 'id' => string 'data'
+ * 'date' => string 'data'
+ * 'name' => string 'data'
+ * 'email' => string 'data'
+ * 'message' => string 'data
+ *  )
+ * object 1 (
+ * 'id' => string 'data'
+ * 'date' => string 'data'
+ * 'name' => string 'data'
+ * 'email' => string 'data'
+ * 'message' => string 'data'
+ * )
+ * ---///---
+ * )
  */
-function load(){
+
+function load()
+{
     global $qb;
-    $name=$qb->table('posts')->select('posts.name');
-    return array(
-        array(
-        'name'=> $name,
-        'email' =>'2',
-        'date'=> date("Y-m-d"),
-        'message' => '3'
-        ),
-    );
+    $data_db = $qb->table('posts')->get();
+
+    $arrayOfArrays = array();
+
+    foreach ($data_db as $dataRaw) {
+        $objectsIntoArray = get_object_vars($dataRaw);
+        $arrayOfArrays[] = $objectsIntoArray;
+    }
+
+    $posts = array_reverse($arrayOfArrays);
+    return $posts;
 }
 
-$loadedData=load();
-var_dump($loadedData);
+//returns array of arrays (posts)
+$posts=load();
+//var_dump($posts);
+
 
