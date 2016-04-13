@@ -19,7 +19,7 @@ cache:
     - vendor
 
 before_install:
-  mysql -e "CREATE DATABASE old07; use old07; source dump.sql; show databases;";
+  mysql -e "CREATE DATABASE old07; use old07; source dump.sql; show tables;";
 
 
 install:
