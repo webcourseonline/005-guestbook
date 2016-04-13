@@ -10,12 +10,17 @@ branches:
 
 services:
   - mysql
+  -
 
 cache:
   directories:
     - $HOME/.composer/cache
     - bin
     - vendor
+
+before_install:
+  mysql  -e "CREATE DATABASE old06; use old06; source dump.sql;";
+
 
 install:
   - composer self-update
