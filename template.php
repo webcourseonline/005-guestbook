@@ -16,6 +16,14 @@
 
 <header class = "page-header text-center"><h1>GUESTBOOK</h1></header>
 <div class ="container">
+    <?php
+    //надо красиво оформить
+    if(isset($error['notdata'])){
+        echo $error['notdata'];
+    }
+
+
+    ?>
     <form action = '#' method="post">
         <div class="form-group col-md-6">
             <label for="name">Name <span>*</span></label>
@@ -41,14 +49,23 @@
     </form>
 
     <div class = "data">
-
     </div>
     <div class = "data">
+        <?php //надо красиво оформить!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        if(isset($data)){
+        foreach($data as $data1){?>
 
+            <?php echo $data1['name']; ?>
+            <?php echo $data1['email']; ?>
+            <?php echo $data1['date']; ?>
+            <?php echo $data1['message']. "<br>"; ?>
+        <?php }     }?>
     </div>
 
     <div class="tab-content">
-        <div class="tab-pane" id="<?php ?>"></div>
+        <div class="tab-pane">
+
+        </div>
     </div>
 
     <nav>
