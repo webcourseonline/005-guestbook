@@ -1,4 +1,4 @@
-# 005-guestbook [![Latest Stable](https://travis-ci.org/webcourseonline/005-guestbook.svg?branch=master)](https://github.com/webcourseonline/005-guestbook)
+# 005-guestbook [![Latest Stable](https://travis-ci.org/webcourseonline/005-guestbook.svg?branch=master)](https://travis-ci.org/webcourseonline/005-guestbook)
 
 ## Install
 
