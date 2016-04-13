@@ -11,6 +11,7 @@ $config = array(
     'database'  => 'guestbook',
     'username'  => 'root',
     'password'  => 'test123',//'test123',
+
     'charset'   => 'utf8', // Optional
     'collation' => 'utf8_general_ci', // Optional
     'prefix'    => '', // Table prefix, optional
@@ -82,7 +83,7 @@ function save(array $data){
  * 'date' => string 'data'
  * 'name' => string 'data'
  * 'email' => string 'data'
- * 'message' => string 'data'
+ * 'message' => string 'data
  *  )
  * object 1 (
  * 'id' => string 'data'
