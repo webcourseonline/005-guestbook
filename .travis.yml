@@ -10,7 +10,6 @@ branches:
 
 services:
   - mysql
-  -
 
 cache:
   directories:
