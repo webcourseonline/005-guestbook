@@ -113,6 +113,6 @@ function load()
 
 //returns array of arrays (posts)
 $posts=load();
-var_dump($posts);
+//var_dump($posts);
 
 
