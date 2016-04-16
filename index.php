@@ -40,14 +40,14 @@ if(isset($_POST['name']) && isset($_POST['email']) && isset($_POST['massage']) &
         );
     save($data1);
 }else{
-    $error["notdata"] = "Поля введены не верно";
+    $error["notdata"] = "Fields entered incorrectly";
 }
+
+$data = load();
 require_once ("template.php");
-
-
 //из базы данных вывод на страницу
 
-//$data = load();
+
 
 
 

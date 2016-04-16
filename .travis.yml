@@ -13,8 +13,13 @@ services:
 
 cache:
   directories:
-    - vendor
     - $HOME/.composer/cache
+    - bin
+    - vendor
+
+before_install:
+  mysql -e "CREATE DATABASE old07; use old07; source dump.sql; show tables;";
+
 
 install:
   - composer self-update
