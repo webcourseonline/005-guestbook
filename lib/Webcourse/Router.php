@@ -9,7 +9,7 @@
 namespace Webcourse;
 
 
-class FrontController
+class Router
 {
     
     /**
