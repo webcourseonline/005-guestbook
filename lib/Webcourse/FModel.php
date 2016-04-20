@@ -7,12 +7,25 @@
  */
 
 namespace Webcourse;
-
+use Pixie\QueryBuilder\QueryBuilderHandler;
 
 class FModel
 {
-    public function __construct()
-    {
+    public function __construct(){
+
     }
+    public function create($table, array $data){
+
+    }
+    public function read($table, $id){
+
+    }
+    public function update($table, $id, array $data){
+
+    }
+    public function delete($table, $id){
+
+    }
+
 
 }
