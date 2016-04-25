@@ -16,6 +16,10 @@ class FrontControllerTest extends \PHPUnit_Framework_TestCase
         
         $fc = new \Webcourse\FrontController();
         $this->assertInstanceOf("\Webcourse\FrontController", $fc);
+
+
+        // Init
+        // run
         
     }
 }
