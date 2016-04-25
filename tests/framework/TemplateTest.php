@@ -9,11 +9,14 @@ class TemplateTest extends \PHPUnit_Framework_TestCase
     protected function tearDown()
     {
     }
-    
-    public function testOutput()
+
+    // tests
+    public function testInit()
     {
 
-        
+        $fc = new \Webcourse\Template();
+        $this->assertInstanceOf("\Webcourse\Template", $fc);
+
         $data = array(
             array(
                 'name' => "Ann",
@@ -28,16 +31,15 @@ class TemplateTest extends \PHPUnit_Framework_TestCase
                 'message' => "Test"
             )
         );
-        
+
         ob_start();
 
         include realpath(__DIR__ . '/../../template.php');
 
         $html = ob_get_contents();
         ob_end_clean();
-        
+
         $this->assertGreaterThan(0, strpos($html, "Ann"));
-
-
+        
     }
 }
