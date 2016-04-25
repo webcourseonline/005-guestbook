@@ -9,7 +9,7 @@
 namespace Webcourse;
 use Pixie\QueryBuilder\QueryBuilderHandler;
 
-class FModel
+class Model
 {
     public function __construct(){
 
