@@ -21,7 +21,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf("\Webcourse\Model", $fc);
     }
     public function testCreate(){
-//        $this->table =
+//        $th
     }
     public function testRead(){
 
