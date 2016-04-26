@@ -11,6 +11,24 @@ namespace Webcourse;
 
 class Response
 {
+    /**
+     * @var int
+     */
+    protected $code;
+    /**
+     * @var array
+     */
+    protected $headers;
+    /**
+     * @var array
+     */
+    protected $cookies;
+    /**
+     * @var string
+     */
+    protected $contend;
+
+
 
     /**
      * ResponseController constructor.
