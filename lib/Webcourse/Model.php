@@ -7,15 +7,67 @@
  */
 
 namespace Webcourse;
-use Pixie\QueryBuilder\QueryBuilderHandler;
+use Pixie\Connection;
+use PDO;
+//use Pixie\QueryBuilder\QueryBuilderHandler;
 
 
 class Model
 {
-    public function __construct(){
+
+    /**
+     * @var Connection
+     */
+    protected $connect;
+    /**
+     * @var array
+     */
+    public $data;
+    /**
+     * @var string
+     */
+    public $table;
+
+    public function __construct($config){
+        $this->config = array(
+            'driver'    => 'mysql', // Db driver
+            'host'      => '127.0.0.1',
+            'database'  => 'guestbook',
+            'username'  => 'root',
+            'password'  => '21609332',//'test123',
+            'charset'   => 'utf8', // Optional
+            'collation' => 'utf8_general_ci', // Optional
+            'prefix'    => '', // Table prefix, optional
+            'options'   => array( // PDO constructor options, optional
+                PDO::ATTR_TIMEOUT => 5,
+                PDO::ATTR_EMULATE_PREPARES => false,
+            ),
+
+        );
+        $time = time();
+        $data = array(
+            'name' => 'olga1',
+            'email' => 'olgaaaaa@gg.com',
+            'message' => 'hello))))',
+            'date' => $time,
+        );
+
+
+//        $this->connect ="";
+        $this->connect = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
 
     }
-    public function create(QueryBuilderHandler $table, array $data){
+    public function create($table, array $data){
+
+            $result = $this->connect->table('posts')->insert($data);
+
+//        $this->connect->$data();
+//        $row = $this->table()->create();
+//
+//        $row = $this->getTable()->create();
+//        $row->setFromArray($data);
+//        return $row->save();
+
 
     }
     public function read($table, $id){
