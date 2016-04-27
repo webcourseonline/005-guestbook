@@ -1,59 +1,41 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: taras
- * Date: 18.04.16
- * Time: 20:45
- */
+
 
 namespace Webcourse;
 
 
-class ActivityStreamController
-{
-    public function addActivity()
-    {
-        echo 'work!!!';
-    }
-}
-
 class Router
 {
-    public function route($url)
+    const CONTROLLER = 'IndexController';
+    const ACTION = 'indexAction';
+
+    private $routes;
+
+    public function __construct()
     {
-        $path = $this->dispatchUrl($url);
-        $this->callController($path);
+        $this->routes = require dirname(__FILE__).'/Routs.php';
     }
 
-    protected function dispatchUrl($url)
+    public function run($uri = 'webcourse/write')
     {
-        $partsOfUrl = preg_split("/[\/]+/", $url);
+        $controllerName = self::CONTROLLER;
+        $actionName = self::ACTION;
 
-        if ( isset($partsOfUrl[2])){
-            $controllerName = ucfirst($partsOfUrl[2]).'Controller';
-        } else {
-            $controllerName = 'IndexController';
+        foreach ($this->routes as $uriPattern => $path) {
+            if (preg_match("~$uriPattern~", $uri)) {
+                $segments = explode('/', $path);
+                $controllerName = ucfirst( array_shift($segments).'Controller' );
+                $actionName = 'action'.ucfirst( array_shift($segments) );
+            }
         }
-        if ( isset($partsOfUrl[3])){
-            $actionName = $partsOfUrl[3].'Action';
-        } else {
-            $actionName = 'indexAction';
-        }
+
 
         return ['controllerName' => $controllerName,
-            'actionName' => $actionName,
-        ];
+                'actionName' => $actionName];
     }
 
-    protected function callController($path)
+    public function getRoutes()
     {
-        $controller = new $path['controllerName']();
-        $controller->$path['actionName']();
+        return $this->routes;
     }
-}
-
-
-
-$router = new Router();
-$router->route('http://domain.ru/activityStream/addActivity');
 }
