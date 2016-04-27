@@ -64,6 +64,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         $time = time();
 
         $this->data = array(
+
             'name' => $time,
             'email' => 'olgaaaaa@gg.com',
             'message' => 'hello))))',
