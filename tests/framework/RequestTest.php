@@ -12,12 +12,16 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     // tests
     public function testInit()
     {
-        $fc = new \Webcourse\Request();
-        $this->assertInstanceOf("\Webcourse\Request", $fc);
+        $request = new \Webcourse\Request();
+        $this->assertInstanceOf("\Webcourse\Request", $request);
     }
 
-    public function testTypeParams(){
+    public function testGetParams(){
+        $request = new \Webcourse\Request();
+        $result = $request->getParams();
+        $this->assertFalse($result);
 
+        $request->addParams(array("paramName"=>"paramX"))
     }
 
     public function testTypeHeaders(){
