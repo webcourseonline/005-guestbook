@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5d6f70bd9733dd0a79e95ba6aa4b4cb0",
-    "content-hash": "0def39e8e13e240367103bdd33f18937",
+    "hash": "581a92b09f4fb54046baa4284f90846b",
+    "content-hash": "57e7ed24cb3d3b71d331acf4f5b087b8",
     "packages": [
         {
             "name": "twbs/bootstrap",
@@ -64,12 +64,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/usmanhalalit/pixie.git",
-                "reference": "5820ef4f62c7be697767fd84830b7ad6fc057375"
+                "reference": "35378d7acff314bf20fbd3dfa8006b1a036ffc02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/usmanhalalit/pixie/zipball/5820ef4f62c7be697767fd84830b7ad6fc057375",
-                "reference": "5820ef4f62c7be697767fd84830b7ad6fc057375",
+                "url": "https://api.github.com/repos/usmanhalalit/pixie/zipball/35378d7acff314bf20fbd3dfa8006b1a036ffc02",
+                "reference": "35378d7acff314bf20fbd3dfa8006b1a036ffc02",
                 "shasum": ""
             },
             "require": {
@@ -112,7 +112,7 @@
                 "sql",
                 "sqlite"
             ],
-            "time": "2016-04-08 10:58:01"
+            "time": "2016-04-12 11:50:49"
         },
         {
             "name": "usmanhalalit/viocon",
@@ -165,16 +165,16 @@
     "packages-dev": [
         {
             "name": "codeception/codeception",
-            "version": "2.1.7",
+            "version": "2.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "65971b0dee4972710365b6102154cd412a9bf7b1"
+                "reference": "f3daa61f0f11c531b33eb3623ab0daa599d88a79"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/65971b0dee4972710365b6102154cd412a9bf7b1",
-                "reference": "65971b0dee4972710365b6102154cd412a9bf7b1",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/f3daa61f0f11c531b33eb3623ab0daa599d88a79",
+                "reference": "f3daa61f0f11c531b33eb3623ab0daa599d88a79",
                 "shasum": ""
             },
             "require": {
@@ -242,7 +242,7 @@
                 "functional testing",
                 "unit testing"
             ],
-            "time": "2016-03-12 01:15:25"
+            "time": "2016-04-15 02:56:43"
         },
         {
             "name": "doctrine/instantiator",
@@ -456,16 +456,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "1.2.3",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "2e89629ff057ebb49492ba08e6995d3a6a80021b"
+                "reference": "31382fef2889136415751badebbd1cb022a4ed72"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/2e89629ff057ebb49492ba08e6995d3a6a80021b",
-                "reference": "2e89629ff057ebb49492ba08e6995d3a6a80021b",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/31382fef2889136415751badebbd1cb022a4ed72",
+                "reference": "31382fef2889136415751badebbd1cb022a4ed72",
                 "shasum": ""
             },
             "require": {
@@ -510,7 +510,48 @@
                 "stream",
                 "uri"
             ],
-            "time": "2016-02-18 21:54:00"
+            "time": "2016-04-13 19:56:01"
+        },
+        {
+            "name": "jakoch/phantomjs-installer",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jakoch/phantomjs-installer.git",
+                "reference": "b8ee2aac9b95f9a9ee30a05a4df4a0984a8a8b85"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/b8ee2aac9b95f9a9ee30a05a4df4a0984a8a8b85",
+                "reference": "b8ee2aac9b95f9a9ee30a05a4df4a0984a8a8b85",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*"
+            },
+            "type": "custom-installer",
+            "autoload": {
+                "psr-0": {
+                    "PhantomInstaller\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens-André Koch",
+                    "email": "jakoch@web.de"
+                }
+            ],
+            "description": "A Composer package which installs the PhantomJS binary (Linux, Windows, Mac) into `/bin` of your project.",
+            "keywords": [
+                "binaries",
+                "headless",
+                "phantomjs"
+            ],
+            "time": "2016-01-25 16:30:30"
         },
         {
             "name": "phpdocumentor/reflection-docblock",

@@ -2,7 +2,7 @@
     "config": {
         "bin-dir": "bin",
         "github-oauth": {
-            "github.com": "3da8f7d3b999982102f7f279b9bdb44f81330373"
+            "github.com": "709c64b81cfca7e7ee729fb98d7ebfe2d1036204"
         }
     },
     "require": {
@@ -10,6 +10,20 @@
         "twbs/bootstrap": "v3.3.6"
     },
     "require-dev": {
-        "codeception/codeception": "*"
+        "codeception/codeception": "*",
+        "jakoch/phantomjs-installer": "2.1.1"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS"
+        ],
+        "post-update-cmd": [
+            "PhantomInstaller\\Installer::installPhantomJS"
+        ]
+    },
+    "autoload": {
+        "psr-0": {
+            "Webcourse": "lib/"
+        }
     }
 }

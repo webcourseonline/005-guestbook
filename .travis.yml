@@ -30,4 +30,5 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 
 script:
+  - bin/phantomjs --webdriver=4444 > /dev/null 2>&1 & #start phantomjs
   - php bin/codecept run  # self tests
