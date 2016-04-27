@@ -27,9 +27,9 @@ class ModelTest extends \PHPUnit_Framework_TestCase
     $this->config = array(
         'driver'    => 'mysql', // Db driver
         'host'      => '127.0.0.1',
-        'database'  => 'guestbook',
+        'database'  => 'test',
         'username'  => 'root',
-        'password'  => '21609332',//'test123',
+        'password'  => '',//'test123',
         'charset'   => 'utf8', // Optional
         'collation' => 'utf8_general_ci', // Optional
         'prefix'    => '', // Table prefix, optional
@@ -64,7 +64,6 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         $time = time();
 
         $this->data = array(
-
             'name' => $time,
             'email' => 'olgaaaaa@gg.com',
             'message' => 'hello))))',
@@ -83,7 +82,6 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $result = $connect->table('posts')->where('name','=', $time)->get();
         $this->assertCount(1, $result);
-
 
 
     }
