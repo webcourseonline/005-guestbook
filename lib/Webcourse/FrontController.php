@@ -14,6 +14,7 @@ class FrontController
     const ENV_PROD = 'prod';
     const ENV_DEMO = 'demo';
     const ENV_DEV = 'dev';
+    const ENV_TEST = 'test';
 
 //    /**
 //     * @var 
@@ -58,7 +59,8 @@ class FrontController
         
         $configName = "config_{$env}.php";
         $this->setConfigPath($configDir . "/" . $configName);
-        
+        $this->config = include $this->getConfigPath();
+
     }
 
     /**
@@ -67,7 +69,7 @@ class FrontController
     public function init()
     {
         
-        $this->setDb(new Model());
+        $this->setDb(new Model($this->config));
         $this->setConfig(array());
         $this->setResponse(new Response());
         $this->setRequest(new Request());

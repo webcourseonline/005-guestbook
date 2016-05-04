@@ -6,14 +6,17 @@ class ModelTest extends \PHPUnit_Framework_TestCase
      * @var \Webcourse\Model
      */
     protected $model;
+
     /**
      * @var string
      */
     public $table;
+
     /**
      * @var array
      */
     protected $config;
+
     /**
      * @var array
      */
@@ -21,26 +24,10 @@ class ModelTest extends \PHPUnit_Framework_TestCase
     public $id;
     public $data1;
 
-
-
     protected function setUp()
     {
         //class Moded
-    $this->config = array(
-        'driver'    => 'mysql', // Db driver
-        'host'      => '127.0.0.1',
-        'database'  => 'test',//test
-        'username'  => 'root',
-        'password'  => '',//'test123',
-        'charset'   => 'utf8', // Optional
-        'collation' => 'utf8_general_ci', // Optional
-        'prefix'    => '', // Table prefix, optional
-        'options'   => array( // PDO constructor options, optional
-            PDO::ATTR_TIMEOUT => 5,
-            PDO::ATTR_EMULATE_PREPARES => false,
-        ),
-
-    );
+    $this->config = include dirname(__FILE__) . '/../../config/config_test.php';
 
     }
     protected function tearDown()
