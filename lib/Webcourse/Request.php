@@ -12,10 +12,10 @@ namespace Webcourse;
 class Request
 {
 //internals
-    protected static $params;
-    protected static $headers;
-    protected static $cookies;
-    protected static $type;
+    protected  $params;
+    protected  $headers;
+    protected  $cookies;
+    protected  $type;
 
     /**
      * Request constructor.
@@ -28,10 +28,17 @@ class Request
 
     }
 
+    /**
+     * получаем параметры от пользователя (принимаем данные)
+     */
     public function getParams(){
-
+    return false;
     }
 
+    /**
+     *
+     * помещаем данные полученные методом getParams() в массив $params
+     */
     public function addParams($params){
 
     }
