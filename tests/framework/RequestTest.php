@@ -63,4 +63,5 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $result = $request->setType("sgsg");
         $this->assertEquals("sgsg", $result);
     }
+
 }
