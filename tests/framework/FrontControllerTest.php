@@ -20,7 +20,6 @@ class FrontControllerTest extends \PHPUnit_Framework_TestCase
         $this->fc = new \Webcourse\FrontController($this->configDir, \Webcourse\FrontController::ENV_TEST);
 
     }
-
     protected function tearDown()
     {
     }
