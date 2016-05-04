@@ -27,41 +27,26 @@ class Model
      * @var string
      */
     public $table;
+    public $id;
+
 
     public function __construct($config){
 
         $this->config = $config;
-        $time = time();
-        $data = array(
-            'name' => 'olga1',
-            'email' => 'olgaaaaa@gg.com',
-            'message' => 'hello))))',
-            'date' => $time,
-        );
-
-
-//        $this->connect ="";
         $this->connect = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
 
     }
     public function create($table, array $data){
 
-            $result = $this->connect->table('posts')->insert($data);
-
-//        $this->connect->$data();
-//        $row = $this->table()->create();
-//
-//        $row = $this->getTable()->create();
-//        $row->setFromArray($data);
-//        return $row->save();
-
-
+        $id = $this->connect->table('posts')->insert($data);
+        return (integer)$id;
     }
     public function read($table, $id){
 
+
     }
     public function update($table, $id, array $data){
-
+        $data_array = $this->connect->table('posts')->where('id','=', $id)->insert($data);
     }
     public function delete($table, $id){
 

@@ -18,6 +18,8 @@ class ModelTest extends \PHPUnit_Framework_TestCase
      * @var array
      */
     public $data;
+    public $id;
+    public $data1;
 
 
 
@@ -27,7 +29,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
     $this->config = array(
         'driver'    => 'mysql', // Db driver
         'host'      => '127.0.0.1',
-        'database'  => 'test',
+        'database'  => 'test',//test
         'username'  => 'root',
         'password'  => '',//'test123',
         'charset'   => 'utf8', // Optional
@@ -40,15 +42,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
     );
 
-//$post = array(
-//    'name' => 'Olga1',
-//    'email' => 'olga@gmail.com',
-//    'date' => '2016-04-25',
-//    'message' => 'Hello my friend!=)',
-//);
-
     }
-
     protected function tearDown()
     {
     }
@@ -56,20 +50,17 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 //     tests
     public function testMe()
     {
-//        $fc = new \Webcourse\Model($this->config);
-//        $this->assertInstanceOf("\Webcourse\Model", $fc);
+
     }
     public function testCreate(){
 
         $time = time();
-
         $this->data = array(
             'name' => $time,
-            'email' => 'olgaaaaa@gg.com',
+            'email' => 'May@gg.com',
             'message' => 'hello))))',
-            'date' => '',
+            'date' => date("Y-m-d H:i:s"),
             );
-
 
         /**
          * @var $connect \Pixie\QueryBuilder\QueryBuilderHandler
@@ -78,17 +69,45 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
         $model = new \Webcourse\Model($this->config);
 
-        $model->create($this->table, $this->data);
+        $id = $model->create($this->table, $this->data);
 
+        $this->assertInternalType('integer', $id);//int
+        $this->assertGreaterThan(0, $id);
         $result = $connect->table('posts')->where('name','=', $time)->get();
+
         $this->assertCount(1, $result);
-
-
+        return $id;
     }
-    public function testRead(){
+    /**
+     * @depends testCreate
+     */
+    public function testRead($id){
 
+        $connect = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
+        $model = new \Webcourse\Model($this->config);
+        $model->read($this->table, $id);
+        $result = $connect->table('posts')->where('id','=', $id)->get();
+
+        $this->assertCount(1, $result);
     }
     public function testUpdate(){
+//        $this->id = 74;
+//        $this->data1 = array(
+//            'name' => date("Y-m-d"),
+//            'email' => 'May@gg.com',
+//            'message' => 'testUpdate',
+//            'date' => date("Y-m-d H:i:s"),
+//        );
+//        /**
+//         * @var $connect \Pixie\QueryBuilder\QueryBuilderHandler
+//         */
+//        $connect = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
+//        $model = new \Webcourse\Model($this->config);
+//        $model->update($this->table, $this->id, $this->data1);
+//        $result = $connect->table('posts')->where('id','=', $this->id)->update($this->data1);
+//
+//        $this->assertCount(1, $result);
+
 
     }
     public function testDelete(){
