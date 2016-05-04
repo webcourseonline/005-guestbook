@@ -29,7 +29,7 @@ class Request
         $this->params = array();
         $this->headers = array();
         $this->cookies = array();
-
+        $this->type = " ";
     }
 //methods
     private function init($init){

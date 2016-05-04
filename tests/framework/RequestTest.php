@@ -20,7 +20,7 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     {
         $request = new \Webcourse\Request();
         $result = $request->getParams();
-        $this->assert($result);
+        $this->assertInternalType("array", $result);
     }
 
     public function testAddParams(){
@@ -29,15 +29,21 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(array("paramName" => "paramX"), $result);
     }
 
-    public function testTypeHeaders()
-    {
+    public function testGetHeaders(){
+        $request = new \Webcourse\Request();
+        $result = $request->getHeaders();
+        $this->assertInternalType("array", $result);
     }
 
-    public function testTypeCookies()
-    {
+    public function testGetCookies(){
+        $request = new \Webcourse\Request();
+        $result = $request->getCookies();
+        $this->assertInternalType("array", $result);
     }
 
-    public function testTypeType()
-    {
+    public function testGetType(){
+        $request = new \Webcourse\Request();
+        $result = $request->getType();
+        $this->assertInternalType("string", $result);
     }
 }
