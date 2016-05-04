@@ -16,9 +16,11 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf("\Webcourse\Request", $request);
     }
 
-    public function testGetParams(){
+    public function testGetParams()
+    {
         $request = new \Webcourse\Request();
         $result = $request->getParams();
+
         $this->assertFalse($result);
 
         $request->addParams(array("paramName"=>"paramX"));
@@ -32,16 +34,27 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $request->addHeaders(array("Name"=>"X"));
         $result = $request->getHeaders();
 
-        $this->assertContains
+        $this->assertContains;
+
+        $this->assert($result);
     }
 
-    public function testTypeCookies(){
+    public function testAddParams(){
+        $request = new \Webcourse\Request();
+        $result = $request->addParams(array("paramName" => "paramX"));
+        $this->assertEquals(array("paramName" => "paramX"), $result);
 
     }
 
-    public function testTypeType(){
-
+    public function testTypeHeaders()
+    {
     }
 
+    public function testTypeCookies()
+    {
+    }
+
+    public function testTypeType()
+    {
+    }
 }
-
