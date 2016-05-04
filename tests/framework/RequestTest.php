@@ -21,11 +21,18 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $result = $request->getParams();
         $this->assertFalse($result);
 
-        $request->addParams(array("paramName"=>"paramX"))
+        $request->addParams(array("paramName"=>"paramX"));
     }
 
-    public function testTypeHeaders(){
+    public function testGetHeaders(){
+        $request = new \Webcourse\Request();
+        $result = $request->getHeaders();
+        $this->assertFalse($result);
 
+        $request->addHeaders(array("Name"=>"X"));
+        $result = $request->getHeaders();
+
+        $this->assertContains
     }
 
     public function testTypeCookies(){

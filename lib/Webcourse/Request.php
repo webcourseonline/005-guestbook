@@ -43,6 +43,9 @@ class Request
 
     }
 
+    /**
+     *
+     */
     public function getHeaders(){
 
     }
