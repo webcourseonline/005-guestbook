@@ -51,6 +51,9 @@ class Request
         return $this->params;
     }
 
+    /**
+     *
+     */
     public function getHeaders(){
         return $this->headers;
     }
