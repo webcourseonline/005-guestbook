@@ -16,25 +16,28 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf("\Webcourse\Request", $request);
     }
 
-    public function testGetParams(){
+    public function testGetParams()
+    {
         $request = new \Webcourse\Request();
         $result = $request->getParams();
-        $this->assertFalse($result);
-
-        $request->addParams(array("paramName"=>"paramX"))
+        $this->assert($result);
     }
 
-    public function testTypeHeaders(){
-
+    public function testAddParams(){
+        $request = new \Webcourse\Request();
+        $result = $request->addParams(array("paramName" => "paramX"));
+        $this->assertEquals(array("paramName" => "paramX"), $result);
     }
 
-    public function testTypeCookies(){
-
+    public function testTypeHeaders()
+    {
     }
 
-    public function testTypeType(){
-
+    public function testTypeCookies()
+    {
     }
 
+    public function testTypeType()
+    {
+    }
 }
-
