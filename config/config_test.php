@@ -3,9 +3,9 @@
 $config = array(
     'driver'    => 'mysql', // Db driver
     'host'      => '127.0.0.1',
-    'database'  => 'guestbook',//test
+    'database'  => 'test',//test
     'username'  => 'root',
-    'password'  => '21609332',
+    'password'  => '',
     'charset'   => 'utf8', // Optional
     'collation' => 'utf8_general_ci', // Optional
     'prefix'    => '', // Table prefix, optional
