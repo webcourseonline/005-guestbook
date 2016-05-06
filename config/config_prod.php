@@ -1,11 +1,11 @@
 <?php
 
-$config = array(
+return array(
     'driver'    => 'mysql', // Db driver
     'host'      => '127.0.0.1',
-    'database'  => 'guestbook',//test
+    'database'  => 'test',//test
     'username'  => 'root',
-    'password'  => '21609332',
+    'password'  => '',//'test123',
     'charset'   => 'utf8', // Optional
     'collation' => 'utf8_general_ci', // Optional
     'prefix'    => '', // Table prefix, optional
@@ -15,6 +15,3 @@ $config = array(
     ),
 
 );
-
-$parentConfig = include "config_dev.php";
-return array_replace_recursive($parentConfig, $config);
