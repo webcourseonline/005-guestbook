@@ -46,10 +46,13 @@ class Model
 
     }
     public function update($table, $id, array $data){
-        $data_array = $this->connect->table('posts')->where('id','=', $id)->insert($data);
+        $data_array = $this->connect->table('posts')->where('id','=', $id);
+        $data_array->update($data);
+       //    return $data_array->save();
     }
     public function delete($table, $id){
-
+        $data_array = $this->connect->table('posts')->where('id','=', $id);
+        $data_array->delete();
     }
 
 

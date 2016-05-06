@@ -2,9 +2,9 @@
 return array(
     'driver'    => 'mysql', // Db driver
     'host'      => '127.0.0.1',
-    'database'  => 'test',//test
+    'database'  => 'guestbook',//test
     'username'  => 'root',
-    'password'  => '',//'test123',
+    'password'  => '21609332',
     'charset'   => 'utf8', // Optional
     'collation' => 'utf8_general_ci', // Optional
     'prefix'    => '', // Table prefix, optional
