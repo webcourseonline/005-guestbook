@@ -7,7 +7,7 @@ config/config_test.php
 
 tests/_log/*
 tests/_temp/*
-tests/_data/*
+# tests/_data/*
 tests/_output/*
 
 

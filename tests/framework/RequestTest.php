@@ -1,4 +1,5 @@
 <?php
+
 class RequestTest extends \PHPUnit_Framework_TestCase
 {
     protected function setUp()
@@ -12,6 +13,10 @@ class RequestTest extends \PHPUnit_Framework_TestCase
     // tests
     public function testInit()
     {
+
+//        $browser = ;
+
+        $data = file_get_contents("http://127.0.0.1:8088/test.php");
         $request = new \Webcourse\Request();
         $this->assertInstanceOf("\Webcourse\Request", $request);
     }
@@ -52,11 +57,11 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("jsdhfj", $result);
     }
 
-    public function testGetType(){
-        $request = new \Webcourse\Request();
-        $result = $request->getType();
-        $this->assertInternalType("string", $result);
-    }
+//    public function testGetType(){
+//        $request = new \Webcourse\Request();
+//        $result = $request->getType();
+//        $this->assertInternalType("string", $result);
+//    }
 
     public function testSetType(){
         $request = new \Webcourse\Request();

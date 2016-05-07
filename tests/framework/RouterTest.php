@@ -4,9 +4,16 @@ class RouterTest extends \PHPUnit_Framework_TestCase
 {
     protected $router;
 
+    /**
+     * @var array
+     */
+    protected $config;
+
     protected function setUp()
     {
-        $this->router = new \Webcourse\Router();
+
+        $this->config = include dirname(__FILE__) . '/../../config/config_test.php';
+        $this->router = new \Webcourse\Router($this->config['routes']);
     }
 
     protected function tearDown()

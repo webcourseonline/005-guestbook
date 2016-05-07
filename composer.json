@@ -7,10 +7,12 @@
     },
     "require": {
         "usmanhalalit/pixie": "2.*@dev",
-        "twbs/bootstrap": "v3.3.6"
+        "twbs/bootstrap": "v3.3.6",
+        "site5/phantoman": "^1.1"
     },
     "require-dev": {
         "codeception/codeception": "*",
+        "codeception/phpbuiltinserver": "*",
         "jakoch/phantomjs-installer": "2.1.1"
     },
     "scripts": {
