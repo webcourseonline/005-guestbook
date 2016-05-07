@@ -31,6 +31,7 @@ class Request
         $this->headers = array();
         $this->cookies = array();
         $this->type = " ";
+        $this->init();
     }
 //methods
     /**
@@ -49,7 +50,7 @@ class Request
         $this->params = $_POST;
     }
     else{
-        $this->params = false;
+        $this->params = array();
     }
     }
 
