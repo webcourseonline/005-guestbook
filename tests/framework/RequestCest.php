@@ -26,8 +26,9 @@ class RequestCest
         $I->sendGET("request.php", array('key_get' => "value_get"));
         $requestTest = json_decode($I->grabResponse(), true);
         $I->assertEquals("value_get", $requestTest['params']['key_get']);
-        $I->assertEquals('X-WEBCOURSE-DEBUG=true', $requestTest['cookies'][0]);
-        $I->assertEquals(' X-WEBCOURSE-DEV=true', $requestTest['cookies'][1]);
+        $arrayCookies = array('X-WEBCOURSE-DEBUG'=>'true', 'X-WEBCOURSE-DEV'=>'true');
+        $I->assertEquals($arrayCookies, $requestTest['cookies']);
+        $I->assertNotContains('X-WEBCOURSE-ANOTHER', $requestTest['cookies']);
         $I->assertEquals("GET", $requestTest['type']);
 
         }
