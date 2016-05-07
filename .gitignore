@@ -6,7 +6,7 @@ vendor/
 
 tests/_log/*
 tests/_temp/*
-tests/_data/*
+# tests/_data/*
 tests/_output/*
 
 
