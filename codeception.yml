@@ -13,6 +13,7 @@ extensions:
     enabled:
         - Codeception\Extension\RunFailed
         - Codeception\Extension\PhpBuiltinServer
+        - Codeception\Extension\Phantoman
     config:
         Codeception\Extension\PhpBuiltinServer:
             hostname: 127.0.0.1
@@ -21,6 +22,8 @@ extensions:
             documentRoot: ./tests/_data/www
             startDelay: 1
             phpIni: /etc/php5/cli/php.ini
+        Codeception\Extension\Phantoman:
+            path: './bin/phantomjs'
 modules:
     config:
         Db:
@@ -29,4 +32,7 @@ modules:
             password: ''
             dump: tests/_data/dump.sql
         PhpBrowser:
-            url: http://127.0.0.1:8000
+            url: http://127.0.0.1:8088
+        WebDriver:
+             url: 'http://127.0.0.1:8088/'
+             browser: phantomjs

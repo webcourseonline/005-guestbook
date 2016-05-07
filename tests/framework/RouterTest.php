@@ -4,9 +4,16 @@ class RouterTest extends \PHPUnit_Framework_TestCase
 {
     protected $router;
 
+    /**
+     * @var array
+     */
+    protected $config;
+
     protected function setUp()
     {
-        $this->router = new \Webcourse\Router();
+
+        $this->config = include dirname(__FILE__) . '/../../config/config_test.php';
+        $this->router = new \Webcourse\Router($this->config['routes']);
     }
 
     protected function tearDown()
@@ -49,8 +56,8 @@ class RouterTest extends \PHPUnit_Framework_TestCase
 
         $fixture = array(
             '/' => array('actionName' => 'indexAction', 'controllerName' => 'IndexController'),
-            'index/index' => array('actionName' => 'indexAction', 'controllerName' => 'IndexController'),
-            'index/test' => array('actionName' => 'testAction', 'controllerName' => 'IndexController'),
+            '/index/index' => array('actionName' => 'indexAction', 'controllerName' => 'IndexController'),
+            '/index/test' => array('actionName' => 'testAction', 'controllerName' => 'IndexController'),
             '/test' => array('actionName' => 'testAction', 'controllerName' => 'IndexController'),
             '/test/var1/data' => array('actionName' => 'testAction', 'controllerName' => 'IndexController', 'var1' => 'data'),
         );
