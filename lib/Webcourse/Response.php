@@ -75,11 +75,11 @@ class Response
     /**
      * @param array $headers
      */
-    public function setHeaders($response)
+    public function setHeaders($headers)
     {
         if (isset($response['headers'])) {
             foreach($response['headers'] as $key => $value){
-                header($key.': '.$value);
+                $this->headers($key.': '.$value);
             }
         }
 
