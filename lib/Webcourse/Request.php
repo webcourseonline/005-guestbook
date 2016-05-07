@@ -25,13 +25,16 @@ class Request
     /**
      * Request constructor.
      */
-    public function __construct()
+    public function __construct($selfInit = false)
     {
         $this->params = array();
         $this->headers = array();
         $this->cookies = array();
-        $this->type = " ";
-        $this->init();
+        $this->type = false;
+
+        if($selfInit){
+            $this->init();
+        }
     }
 //methods
     /**
@@ -40,18 +43,18 @@ class Request
      * @param $init
      */
     private function init(){
-    $this->type = $_SERVER["REQUEST_METHOD"];
-    $this->cookies = $_SERVER["HTTP_COOKIE"];
-    $this->headers = getallheaders();
-    if($this->type == "GET"){
-        $this->params = $_GET;
-    }
-    elseif($this->type == "POST"){
-        $this->params = $_POST;
-    }
-    else{
-        $this->params = array();
-    }
+        $this->type = $_SERVER["REQUEST_METHOD"];
+        $this->cookies = $_SERVER["HTTP_COOKIE"];
+        $this->headers = getallheaders();
+        if($this->type == "GET"){
+            $this->params = $_GET;
+        }
+        elseif($this->type == "POST"){
+            $this->params = $_POST;
+        }
+        else{
+            $this->params = array();
+        }
     }
 
     /**

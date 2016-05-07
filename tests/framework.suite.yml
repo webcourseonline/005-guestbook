@@ -2,3 +2,8 @@ class_name: FrameworkTester
 modules:
     enabled:
         - \Helper\Framework
+        - Asserts
+        - PhpBrowser
+        - REST:
+            url: http://127.0.0.1:8088/
+            depends: PhpBrowser
