@@ -9,26 +9,17 @@
 namespace Webcourse;
 use Pixie\Connection;
 use PDO;
+use Pixie\QueryBuilder\QueryBuilderHandler;
+
 //use Pixie\QueryBuilder\QueryBuilderHandler;
 
 
 class Model
 {
-
     /**
      * @var Connection
      */
     protected $connect;
-    /**
-     * @var array
-     */
-    public $data;
-    /**
-     * @var string
-     */
-    public $table;
-    public $id;
-
 
     public function __construct($config){
 
@@ -38,21 +29,41 @@ class Model
     }
     public function create($table, array $data){
 
-        $id = $this->connect->table('posts')->insert($data);
+        $id = $this->connect->table($table)->insert($data);
         return (integer)$id;
     }
-    public function read($table, $id){
+    public function readOne($table, $id){
+
+        $data_array = $this->connect->table($table)->where('id','=', $id)->get();
+        return $data_array;
+
+    }
+
+    /**
+     * @param QueryBuilderHandler $table
+     * @return mixed
+     * @throws \Pixie\Exception
+     */
+    public function read($table){
+
+        /**
+         * @var QueryBuilderHandler $data_array
+         */
+        $data_array = $this->connect->table($table)->get();
+        $data = json_encode($data_array);
+        return json_decode($data, true);
 
 
     }
     public function update($table, $id, array $data){
-        $data_array = $this->connect->table('posts')->where('id','=', $id);
+        $data_array = $this->connect->table($table)->where('id','=', $id);
         $data_array->update($data);
-       //    return $data_array->save();
+        return true;
     }
     public function delete($table, $id){
-        $data_array = $this->connect->table('posts')->where('id','=', $id);
+        $data_array = $this->connect->table($table)->where('id','=', $id);
         $data_array->delete();
+        return true;
     }
 
 
