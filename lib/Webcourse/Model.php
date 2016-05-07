@@ -16,10 +16,21 @@ use Pixie\QueryBuilder\QueryBuilderHandler;
 
 class Model
 {
+
     /**
      * @var Connection
      */
     protected $connect;
+    /**
+     * @var array
+     */
+    public $data;
+    /**
+     * @var string
+     */
+    public $table;
+    public $id;
+
 
     public function __construct($config){
 
@@ -28,7 +39,9 @@ class Model
 
     }
     public function create($table, array $data){
-
+        /**
+         * @var integer
+         */
         $id = $this->connect->table($table)->insert($data);
         return (integer)$id;
     }
@@ -45,15 +58,12 @@ class Model
      * @throws \Pixie\Exception
      */
     public function read($table){
-
         /**
          * @var QueryBuilderHandler $data_array
          */
         $data_array = $this->connect->table($table)->get();
         $data = json_encode($data_array);
         return json_decode($data, true);
-
-
     }
     public function update($table, $id, array $data){
         $data_array = $this->connect->table($table)->where('id','=', $id);

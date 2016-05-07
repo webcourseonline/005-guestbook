@@ -6,7 +6,7 @@ use Webcourse\Model;
 
 class Posts extends Model
 {
-    protected $table = 'posts';
+    public $table = 'posts';
     public function getPosts($pageNum, $count = 5){
         $connection = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
         $model = new Model($this->config);

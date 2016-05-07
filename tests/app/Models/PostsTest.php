@@ -18,7 +18,7 @@ class PostsTest extends \PHPUnit_Framework_TestCase
     public function testGetPosts()
     {
 
-        $posts = new Posts($this->config);
+        $posts = new Posts($this->config['database']);
         $post = $posts->getPosts(2);
         $this->assertCount($post[1], $post[0]);
     }
