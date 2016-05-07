@@ -8,6 +8,11 @@
 
 namespace Webcourse;
 
+/**
+ * Class Template
+ * @package Webcourse
+ * generation page from a template and data therein
+ */
 
 class Template
 {
@@ -19,10 +24,12 @@ class Template
 
     /**
      * @var string
+     *
      */
     public $path = "/tests/_data/template.phtml";
 
     /**
+     * @param string $path
      *
      */
 
@@ -32,31 +39,33 @@ class Template
     }
 
     /**
-     * @param $path
+     * return string (path)
      */
-    public function getPath($path)
+    public function getPath()
     {
-        $this->path = $path;
+        return $this->path;
     }
 
+    /**
+     * @param array $data
+     */
 
-    public function setData(array $data)
+    public function setData($data)
     {/**
-     * @var array
+     * @param array $data
      */
         $this->data = $data;
     }
 
     /**
-     * @param $data
+     * @return array
      */
     public function getData($data)
     {
-        $this->data = $data;
+        return $this->data = $data;
     }
 
     /**
-     *
      *
      * @param $data
      */
@@ -64,8 +73,9 @@ class Template
     {
         $this->data = $data;
     }
+
     /**
-     *Template render.
+     *page rendering and output buffering
      */
     public function render()
     {

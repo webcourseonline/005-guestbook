@@ -15,13 +15,18 @@ class TemplateTest extends \PHPUnit_Framework_TestCase
     public function testSetPath ()
     {
         $template = new \Webcourse\Template();
+        $result = $this->path;
+        $this->assertInternalType("string", $result);
+        $this->assertEquals($result);
 
     }
     public function testGetPath ()
     {
         $template = new \Webcourse\Template();
+        $template->setPath($this->path);
         $result = $template->getPath();
-        $this->assertInternalType($template, $result);
+        $this->assertInternalType("string", $result);
+        $this->assertEquals($this->path, $result);
 
     }
 
