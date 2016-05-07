@@ -45,6 +45,7 @@ class Request
     private function init(){
         $this->type = $_SERVER["REQUEST_METHOD"];
         $this->cookies = $_SERVER["HTTP_COOKIE"];
+//        $this->cookies = array_merge($this->cookies, $_SERVER["HTTP_COOKIE"]);
         $this->headers = getallheaders();
         if($this->type == "GET"){
             $this->params = $_GET;

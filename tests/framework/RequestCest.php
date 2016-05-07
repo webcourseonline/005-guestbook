@@ -22,7 +22,7 @@ class RequestCest
         $I->setCookie('X-WEBCOURSE-DEBUG', 'true');
         $I->setCookie('X-WEBCOURSE-DEV', 'true');
         $I->sendGET("request.php", array('key' => "value"));
-        $response = json_decode($I->grabResponse(), true);
+        $requestTest = json_decode($I->grabResponse(), true);
 
     }
 }

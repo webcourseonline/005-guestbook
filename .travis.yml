@@ -31,4 +31,5 @@ before_script:
 
 script:
   - bin/phantomjs --webdriver=4444 > /dev/null 2>&1 & #start phantomjs
+  - php bin/codecept build  # self tests
   - php bin/codecept run  # self tests

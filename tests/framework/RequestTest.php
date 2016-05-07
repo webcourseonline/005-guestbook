@@ -57,11 +57,11 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("jsdhfj", $result);
     }
 
-    public function testGetType(){
-        $request = new \Webcourse\Request();
-        $result = $request->getType();
-        $this->assertInternalType("string", $result);
-    }
+//    public function testGetType(){
+//        $request = new \Webcourse\Request();
+//        $result = $request->getType();
+//        $this->assertInternalType("string", $result);
+//    }
 
     public function testSetType(){
         $request = new \Webcourse\Request();
