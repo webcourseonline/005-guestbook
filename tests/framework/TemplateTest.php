@@ -2,19 +2,40 @@
 
 class TemplateTest extends \PHPUnit_Framework_TestCase
 {
-    protected function setUp()
-    {
-    }
-
-    protected function tearDown()
-    {
-    }
 
     // tests
     public function testInit()
     {
 
-        $fc = new \Webcourse\Template();
-        $this->assertInstanceOf("\Webcourse\Template", $fc);
+        $path = new \Webcourse\Template();
+        $this->assertInstanceOf("\Webcourse\Template", $path);
+
+
+    }
+    public function setPathTests ()
+    {
+
+    }
+    public function getPathTests ()
+    {
+
+    }
+
+    public function setDataTests ()
+    {
+
+    }
+
+    public function getDataTests ()
+    {
+
+    }
+    public function addDataTests ()
+    {
+
+    }
+    public function renderTests ()
+    {
+
     }
 }
