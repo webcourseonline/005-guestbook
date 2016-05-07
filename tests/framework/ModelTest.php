@@ -27,7 +27,8 @@ class ModelTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         //class Moded
-    $this->config = include dirname(__FILE__) . '/../../config/config_test.php';
+        $config = include dirname(__FILE__) . '/../../config/config_test.php';
+        $this->config = $config['database'];
 
     }
     protected function tearDown()
