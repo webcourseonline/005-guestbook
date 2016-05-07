@@ -2,5 +2,5 @@
 
 namespace Webcourse;
 
-return array ( 'webcourse' => 'index/index',
-               'webcourse/write' => 'index/write');
+return array ( '/' => 'index/index',
+                'index/test' => 'index/test');

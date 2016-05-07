@@ -16,22 +16,29 @@ class Router
         $this->routes = require dirname(__FILE__).'/Routs.php';
     }
 
-    public function run($uri = 'webcourse/write')
+    public function run($uri = '/')
     {
-        $controllerName = self::CONTROLLER;
-        $actionName = self::ACTION;
 
         foreach ($this->routes as $uriPattern => $path) {
             if (preg_match("~$uriPattern~", $uri)) {
                 $segments = explode('/', $path);
-                $controllerName = ucfirst( array_shift($segments).'Controller' );
-                $actionName = 'action'.ucfirst( array_shift($segments) );
+                $controllerName = ucfirst(array_shift($segments));
+                $actionName = array_shift($segments);
+                if (!$controllerName && !$actionName) {
+                    $controllerName = self::CONTROLLER;
+                    $actionName = self::ACTION;
+                } elseif (!$controllerName && $actionName) {
+                    $controllerName = self::CONTROLLER;
+                    $actionName = $actionName.'Action';
+                }elseif ($controllerName && !$actionName) {
+                    $controllerName =  $controllerName.'Controller';
+                }
+                return ['controllerName' => $controllerName,
+                    'actionName' => $actionName];
+            } else {
+                return ['error'=>'Такой страницы не существует'];
             }
         }
-
-
-        return ['controllerName' => $controllerName,
-                'actionName' => $actionName];
     }
 
     public function getRoutes()
