@@ -2,7 +2,7 @@
 
 $config['database'] = array(
     'username'  => 'root',
-    'password'  => 'toor',
+    'password'  => '',
 );
 
 $parentConfig = include "config_dev.php";
