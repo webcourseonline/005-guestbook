@@ -12,16 +12,17 @@ namespace Webcourse;
 class Request
 {
 //internals
+    protected  $path;
     protected  $params;
     protected  $headers;
     protected  $cookies;
     protected  $type;
 
     public     $init;
-    public     $dat_params;
-    public     $dat_headers;
-    public     $new_cookies;
-    public     $new_type;
+//    public     $dat_params;
+//    public     $dat_headers;
+//    public     $new_cookies;
+//    public     $new_type;
     /**
      * Request constructor.
      */
@@ -43,9 +44,9 @@ class Request
      * @param $init
      */
     private function init(){
+        $this->path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $this->type = $_SERVER["REQUEST_METHOD"];
-        $this->cookies = $_SERVER["HTTP_COOKIE"];
-//        $this->cookies = array_merge($this->cookies, $_SERVER["HTTP_COOKIE"]);
+        $this->cookies = $_COOKIE;
         $this->headers = getallheaders();
         if($this->type == "GET"){
             $this->params = $_GET;
@@ -63,6 +64,20 @@ class Request
      */
     public function getParams(){
         return $this->params;
+    }
+
+    /**
+     *
+     */
+    public function getPath(){
+        return $this->path;
+    }
+
+    /**
+     *
+     */
+    public function setPath($path){
+        $this->path = $path;
     }
 
     /**
