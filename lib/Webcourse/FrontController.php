@@ -86,6 +86,10 @@ class FrontController
         }
 
     }
+    
+    public function run(){
+        
+    }
 
     /**
      * @return Request
