@@ -12,6 +12,15 @@ settings:
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+        - Codeception\Extension\PhpBuiltinServer
+    config:
+        Codeception\Extension\PhpBuiltinServer:
+            hostname: 127.0.0.1
+            port: 8088
+            autostart: true
+            documentRoot: ./tests/_data/www
+            startDelay: 1
+            phpIni: /etc/php5/cli/php.ini
 modules:
     config:
         Db:
@@ -19,3 +28,5 @@ modules:
             user: ''
             password: ''
             dump: tests/_data/dump.sql
+        PhpBrowser:
+            url: http://127.0.0.1:8000
