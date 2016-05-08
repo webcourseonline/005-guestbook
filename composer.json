@@ -25,7 +25,8 @@
     },
     "autoload": {
         "psr-0": {
-            "Webcourse": "lib/"
+            "Webcourse": "lib/",
+            "App": "src/"
         }
     }
 }

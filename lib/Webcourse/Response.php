@@ -14,7 +14,7 @@ class Response
     /**
      * @var int 
      */
-    protected $code;
+    protected $code = 200;
     /**
      * @var array
      */
@@ -30,7 +30,31 @@ class Response
 
 
 
+
     public function send(){
+        
+        http_response_code($this->getCode());
+        foreach($this->getHeaders() as $key => $value) {
+            header($key . ': ' . $value);
+//            $testHeaders =  array($key . ': ' . $value);
+        }
+//        $testHeader = array_merge($testHeader, );
+        foreach($this->getCookies() as $key => $value) {
+            setcookie($key . ': ' . $value);
+//            $testCookies = ($key . ': ' . $value);
+        }
+        print $this->getContent();
+
+    }
+    
+    public function fillResponse($state){
+
+        if (isset($state)) {
+            $this->setCode($state['code']);
+            $this->setHeaders($state['headers']);
+            $this->setCookies($state['cookies']);
+            $this->setContent($state['content']);
+        }
         
     }
 
@@ -47,6 +71,7 @@ class Response
     public function getCode()
     {
         return $this->code;
+        
     }
 
     /**
@@ -54,7 +79,9 @@ class Response
      */
     public function setCode($code)
     {
-        $this->code = $code;
+        if (isset($code)) {
+            $this->code = $code;
+        }
         
     }
 
@@ -71,7 +98,11 @@ class Response
      */
     public function setHeaders($headers)
     {
-        $this->headers = $headers;
+
+        if(isset($headers)){
+            $this->headers = $headers;
+        }
+
     }
 
     /**

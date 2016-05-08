@@ -1,5 +1,4 @@
 <?php
-
 class FrontControllerTest extends \PHPUnit_Framework_TestCase
 {
 
@@ -17,7 +16,8 @@ class FrontControllerTest extends \PHPUnit_Framework_TestCase
     {
 
         $this->configDir = __DIR__ . '/../../config';
-        $this->fc = new \Webcourse\FrontController($this->configDir, \Webcourse\FrontController::ENV_TEST);
+        $appRoot = realpath("./tests/_data/src");
+        $this->fc = new \Webcourse\FrontController($this->configDir, \Webcourse\FrontController::ENV_TEST, $appRoot);
 
     }
     protected function tearDown()
@@ -27,9 +27,9 @@ class FrontControllerTest extends \PHPUnit_Framework_TestCase
     public function testEnvs(){
 
         $env = array(
-//            \Webcourse\FrontController::ENV_DEV,
-//            \Webcourse\FrontController::ENV_PROD,
-//            \Webcourse\FrontController::ENV_DEMO,
+            \Webcourse\FrontController::ENV_DEV,
+            \Webcourse\FrontController::ENV_PROD,
+            \Webcourse\FrontController::ENV_DEMO,
             \Webcourse\FrontController::ENV_TEST
         );
 
@@ -50,12 +50,31 @@ class FrontControllerTest extends \PHPUnit_Framework_TestCase
         $result = $this->fc->init();
         $this->assertTrue($result);
 
+        $this->assertInternalType("array", $this->fc->getConfig());
+        $this->assertInternalType("string", $this->fc->getAppRoot());
+        $this->assertInstanceOf("\Webcourse\Request", $this->fc->getRequest());
+        $this->assertInstanceOf("\Webcourse\Response", $this->fc->getResponse());
+        $this->assertInstanceOf("\Webcourse\Router", $this->fc->getRouter());
+        $this->assertInstanceOf("\Webcourse\Template", $this->fc->getView());
+        $this->assertInstanceOf("\Webcourse\Register", $this->fc->getRegistry());
+
     }
 
-    public function testMethods(){
+    public function testRun(){
 
         $this->fc->init();
-        $this->assertInstanceOf("\Webcourse\Model", $this->fc->getDb());
 
+        $request = new \Webcourse\Request();
+        $request->setPath("/");
+
+        $this->fc->setRequest($request);
+        $this->fc->run();
+
+        $response = $this->fc->getResponse();
+        $content = $response->getContent();
+
+        $this->assertEquals("IndexController:indexAction", $content);
     }
+
 }
+

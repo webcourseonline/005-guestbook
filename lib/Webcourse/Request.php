@@ -12,16 +12,12 @@ namespace Webcourse;
 class Request
 {
 //internals
+    protected  $path;
     protected  $params;
     protected  $headers;
     protected  $cookies;
     protected  $type;
 
-    public     $init;
-    public     $dat_params;
-    public     $dat_headers;
-    public     $new_cookies;
-    public     $new_type;
     /**
      * Request constructor.
      */
@@ -43,10 +39,20 @@ class Request
      * @param $init
      */
     private function init(){
-        $this->type = $_SERVER["REQUEST_METHOD"];
-        $this->cookies = $_SERVER["HTTP_COOKIE"];
-//        $this->cookies = array_merge($this->cookies, $_SERVER["HTTP_COOKIE"]);
-        $this->headers = getallheaders();
+
+        if (isset($_SERVER["REQUEST_URI"])){
+            $this->path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        }
+        
+        if (isset($_SERVER["REQUEST_METHOD"])){
+            $this->type = $_SERVER["REQUEST_METHOD"];
+        }
+
+        if (function_exists("getallheaders")){
+            $this->headers = getallheaders();
+        }
+
+        $this->cookies = $_COOKIE;
         if($this->type == "GET"){
             $this->params = $_GET;
         }
@@ -66,10 +72,24 @@ class Request
     }
 
     /**
+     *
+     */
+    public function getPath(){
+        return $this->path;
+    }
+
+    /**
+     *
+     */
+    public function setPath($path){
+        $this->path = $path;
+    }
+
+    /**
      * $params
      */
-    public function addParams($dat_params){
-        $this->params = array_merge($this->params, $dat_params);
+    public function addParams($paramsData){
+        $this->params = array_merge($this->params, $paramsData);
         return $this->params;
     }
 
@@ -80,16 +100,16 @@ class Request
         return $this->headers;
     }
 
-    public function addHeaders($dat_headers){
-        $this->headers = array_merge($this->headers, $dat_headers);
+    public function addHeaders($headersData){
+        $this->headers = array_merge($this->headers, $headersData);
         return $this->headers;
     }
     public function getCookies(){
         return $this->cookies;
     }
 
-    public function setCookies($new_cookies){
-        $this->cookies = $new_cookies;
+    public function setCookies($cookiesData){
+        $this->cookies = $cookiesData;
         return $this->cookies;
     }
 
@@ -97,8 +117,8 @@ class Request
         return $this->type;
     }
 
-    public function setType($new_type){
-        $this->type = $new_type;
+    public function setType($typeData){
+        $this->type = $typeData;
         return $this->type;
     }
 

@@ -1,5 +1,6 @@
 <?php
 
+
 class ModelTest extends \PHPUnit_Framework_TestCase
 {
     /**
@@ -41,7 +42,7 @@ class ModelTest extends \PHPUnit_Framework_TestCase
 
     }
     public function testCreate(){
-
+        $table = 'posts';
         $time = time();
         $this->data = array(
             'name' => $time,
@@ -54,36 +55,39 @@ class ModelTest extends \PHPUnit_Framework_TestCase
          * @var $connect \Pixie\QueryBuilder\QueryBuilderHandler
          */
         $connect = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
-
         $model = new \Webcourse\Model($this->config);
-
-        $id = $model->create($this->table, $this->data);
-
+        $id = $model->create($table, $this->data);
         $this->assertInternalType('integer', $id);//int
         $this->assertGreaterThan(0, $id);
         $result = $connect->table('posts')->where('name','=', $time)->get();
-
         $this->assertCount(1, $result);
         return $id;
     }
     /**
      * @depends testCreate
      */
-    public function testRead($id){
-
-        $connect = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
+    public function testReadOne($id){
+        $table = 'posts';
+        //$connect = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
         $model = new \Webcourse\Model($this->config);
-        $model->read($this->table, $id);
-        $result = $connect->table('posts')->where('id','=', $id)->get();
-
+        $result = $model->readOne($table, $id);
         $this->assertCount(1, $result);
         return $id;
     }
+    public function testRead(){
+        $table = 'posts';
+        $connect = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
+        $model = new \Webcourse\Model($this->config);
+        $a = $model->read($table);
+        $result1 = $connect->table($table)->count();
+        $this->assertCount($result1, $a);
+
+    }
     /**
-     * @depends testRead
+     * @depends testReadOne
      */
     public function testUpdate($id){
-
+        $table = 'posts';
         $this->data1 = array(
             'name' => date("Y-m-d"),
             'email' => 'May06_05@gg.com',
@@ -95,11 +99,8 @@ class ModelTest extends \PHPUnit_Framework_TestCase
          */
         $connect = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
         $model = new \Webcourse\Model($this->config);
-        $model->update($this->table, $id, $this->data1);
-        $result = $connect->table('posts')->where('id','=', $id)->get($this->data1);
-
-        $this->assertCount(1, $result);
-
+        $model->update($table, $id, $this->data1);
+        $this->assertTrue(true);
         return $id;
     }
 
@@ -107,13 +108,12 @@ class ModelTest extends \PHPUnit_Framework_TestCase
      * @depends testUpdate
      */
     public function testDelete($id){
-
-        $connect = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
+        $table = 'posts';
+       // $connect = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
         $model = new \Webcourse\Model($this->config);
-        $model->delete($this->table, $id);
-        $result = $connect->table('posts')->where('id','=', $id)->get();
+        $model->delete($table, $id);
 
-        $this->assertCount(0, $result);
+        $this->assertTrue(true);
 
 
     }
