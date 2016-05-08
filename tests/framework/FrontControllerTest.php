@@ -1,5 +1,4 @@
 <?php
-
 class FrontControllerTest extends \PHPUnit_Framework_TestCase
 {
 
@@ -78,3 +77,4 @@ class FrontControllerTest extends \PHPUnit_Framework_TestCase
     }
     
 }
+

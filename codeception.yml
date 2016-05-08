@@ -21,6 +21,7 @@ extensions:
             autostart: true
             documentRoot: ./tests/_data/www
             startDelay: 0
+            phpIni: /etc/php5/cli/php.ini
         Codeception\Extension\Phantoman:
             path: './bin/phantomjs'
 modules:

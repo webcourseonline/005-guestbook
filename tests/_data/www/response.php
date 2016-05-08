@@ -3,4 +3,5 @@
 require_once '../../../vendor/autoload.php';
 
 $response = new \Webcourse\Response();
-$response->send($_REQUEST);
+$response->fillResponse($_REQUEST);
+$response->send();
