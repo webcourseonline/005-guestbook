@@ -51,6 +51,7 @@ class FrontController
      */
     protected $view = false;
 
+
     /**
      * @var Register
      */
