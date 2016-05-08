@@ -2,9 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Guestbook</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/bootstrap.min.js" defer></script>
+    <script src="js/script.js" defer></script>
 </head>
 <body>
-<?= $view['date'] ?>
+<header class="page-header text-center"><h1>Guestbook</h1></header>
+<div class="container">
+    <form action='#' method="post">
+        <div class="form-group col-md-6">
+            <label for="name">Name <span>*</span></label>
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="email">Email address <span>*</span></label>
+            <div class="input-group">
+                <div class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></div>
+                <input type="email" class="form-control" name="email" id="email" placeholder="example@email.com"
+                       required>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="message-text" class="control-label"> Massage</label>
+            <textarea class="form-control" rows="5" id="message-text" name="message"
+                      placeholder="Your message"></textarea>
+        </div>
+        <div class="submit">
+            <button type="submit" name="submit" class="btn btn-primary">Send</button>
+        </div>
+    </form>
+
+    <?php
+    foreach ($view['savedMessages'] as $id => $record):?>
+        <div class="row data">
+            <div class="col-md-10">
+                <p class="time text-lead text-primary"><?php echo $record['date']; ?></p>
+                <p class="message text-justify" id="<?php echo $record['id'] ?>" contenteditable="true"><?php echo $record['message']; ?></p>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-xs btn-success editMessage">
+                    Edit</button>
+                <button class="btn btn-xs btn-danger deleteMessage">
+                    Delete</button>
+            </div>
+        </div>
+    <?php endforeach; ?>
+
+    <div class="tab-content">
+        <div class="tab-pane" id="<?php ?>"></div>
+    </div>
+
+    <nav>
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="active"><a href="#0">1</a></li>
+            <li><a href="#1">2</a></li>
+            <li><a href="#2">3</a></li>
+            <li><a href="#3">4</a></li>
+            <li><a href="#4">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
 </body>
 </html>

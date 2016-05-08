@@ -25,16 +25,23 @@ class Model
      * @var array
      */
     public $data;
+
     /**
      * @var string
      */
-    public $table;
+    protected $table;
+
     public $id;
 
 
-    public function __construct($config){
+    public function __construct($config = null){
 
-        $this->config = $config;
+        if (!isset($config)){
+            $this->config = Register::getInstance()->getValue('config')['database'];
+        } else {
+            $this->config = $config;
+        }
+
         $this->connect = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
 
     }
