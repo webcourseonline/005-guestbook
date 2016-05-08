@@ -14,7 +14,7 @@ class GuestbookController extends Controller {
 //        $model = new App\Model\Guestbook;
 //        $message = $model->read();
         $template = new Template();
-        $template->addData(array('date' => date("Y-m-d")));
+        $template->addData(array('savedMessages' => $message));
         $template->setPath(__DIR__.'/../View/guestbook/index.phtml');
         $html = $template->render();
 

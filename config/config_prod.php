@@ -6,7 +6,7 @@ return array(
         'host'      => '127.0.0.1',
         'database'  => 'test',//test
         'username'  => 'root',
-        'password'  => 'z7a7s7x7',//'test123',
+        'password'  => '',//'test123',
         'charset'   => 'utf8', // Optional
         'collation' => 'utf8_general_ci', // Optional
         'prefix'    => '', // Table prefix, optional
