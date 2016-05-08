@@ -1,6 +1,6 @@
 <?php
 
-namespace Controllers;
+namespace App\Controllers;
 
 use Webcourse\Controller;
 use Webcourse\Response;

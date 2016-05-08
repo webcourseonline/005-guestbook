@@ -39,10 +39,20 @@ class Request
      * @param $init
      */
     private function init(){
-        $this->path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        $this->type = $_SERVER["REQUEST_METHOD"];
+
+        if (isset($_SERVER["REQUEST_URI"])){
+            $this->path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        }
+        
+        if (isset($_SERVER["REQUEST_METHOD"])){
+            $this->type = $_SERVER["REQUEST_METHOD"];
+        }
+
+        if (function_exists("getallheaders")){
+            $this->headers = getallheaders();
+        }
+
         $this->cookies = $_COOKIE;
-        $this->headers = getallheaders();
         if($this->type == "GET"){
             $this->params = $_GET;
         }

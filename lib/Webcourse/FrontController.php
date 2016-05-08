@@ -95,7 +95,7 @@ class FrontController
         $this->setDb(new Model($connection));
 
         $this->setResponse(new Response());
-        $this->setRequest(new Request());
+        $this->setRequest(new Request(true));
 
         $this->setView(new Template());
 
@@ -116,8 +116,8 @@ class FrontController
         $path = $this->getRequest()->getPath();
         $runConfig = $this->router->run($path);
 
-        $path = $this->appRoot . "/Controllers/" . $runConfig['controllerName'] . ".php";
-        $controllerName = "Controllers\\" . $runConfig['controllerName'];
+        $path = $this->appRoot . "/App/Controllers/" . $runConfig['controllerName'] . ".php";
+        $controllerName = "App\\Controllers\\" . $runConfig['controllerName'];
         $controllerFilePath = realpath($path);
 
         if ($controllerFilePath){
@@ -138,13 +138,11 @@ class FrontController
     }
     
     public function send(){
-        
-//        $response = $this->getResponse();
-//        $response->send();
+        $response = $this->getResponse();
+        $response->send();
     }
 
-    /**
-     * @return Request
+    /**     * @return Request
      */
     public function getRequest()
     {
