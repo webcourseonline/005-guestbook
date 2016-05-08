@@ -97,18 +97,22 @@ class Template
      */
     public function render()
     {
+        ob_start();
         try {
             if (file_exists($this->path)
                 && is_file($this->path)) {
-                $template = file_get_contents($this->path);
+
+                $view = $this->getData();
+                require realpath($this->path);
+
+                $template = ob_get_contents();
+                ob_get_clean();
+
                 return $template;
             }
         } catch (\Exception $e) {
             return $e->getMessage() ."\n<br/>". $e->getTraceAsString();
         }
-
-
-
 
     }
 

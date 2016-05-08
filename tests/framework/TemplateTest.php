@@ -52,8 +52,10 @@ class TemplateTest extends \PHPUnit_Framework_TestCase
         $template = new \Webcourse\Template();
         $path =  realpath("tests/_data/src/Views/test/template.phtml");
         $template->setPath($path);
+        $template->setData(array("test" => "Hello world"));
         $result = $template->render();
         $this->assertInternalType("string", $result);
+        $this->assertEquals($result, 'Hello world');
     }
 }
 
