@@ -46,13 +46,16 @@ class TemplateTest extends \PHPUnit_Framework_TestCase
 
     }
 
+
     public function testRender ()
     {
+
+       // $path = realpath(".");
+        //$path = __DIR__;
+
         $template = new \Webcourse\Template();
-        $path = "/tests/_data/template.phtml";
+        $path =  realpath("tests/_data/src/Views/test/template.phtml");
         $template->setPath($path);
-        $template->getData();
-        //$template ->addData();
         $result = $template->render();
         $this->assertInternalType("string", $result);
     }

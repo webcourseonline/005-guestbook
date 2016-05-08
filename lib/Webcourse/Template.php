@@ -27,7 +27,7 @@ class Template
      * @var string
      *
      */
-    public $path = "/tests/_data/template.phtml";
+    protected $path;
 
     /**
      * @param string $path
@@ -40,7 +40,7 @@ class Template
     }
 
     /**
-     * return string (path)
+     * return string $path
      */
     public function getPath()
     {
@@ -81,7 +81,13 @@ class Template
      */
     public function render()
     {
-        return "fff";
+        ob_start();
+        if (file_exists($this->path) && is_file($this->path)) {
+            $template = file_get_contents($this->path);
+            return $template;
+        }
+        ob_end_flush();
+
     }
 
 }
