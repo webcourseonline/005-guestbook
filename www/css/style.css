@@ -1,0 +1,86 @@
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+img {
+    max-width: 200px;
+    max-height: 200px;
+}
+mark {
+    background-color: #F39CB3;
+}
+
+.nav button{
+    margin: 10px 15px;
+}
+
+#emailMe{
+    margin-top: 20vh;
+}
+
+/*Parallax*/
+
+.front#first-screen{
+    height: 100vh;
+    padding-top: 30vh;
+    background: url("../img/frontBackground.jpg") fixed;
+    background-size: cover;
+}
+.bgvideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -9999;
+}
+header.front#first-screen h1{
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+}
+header.front#first-screen p{
+    margin-top: 5vh;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*TEST*/
+.parallax {
+    perspective: 1px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.parallax__layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.parallax__layer--base {
+    transform: translateZ(0);
+}
+.parallax__layer--back {
+    transform: translateZ(-1px);
+}
+
