@@ -57,24 +57,24 @@ class FrontControllerTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf("\Webcourse\Router", $this->fc->getRouter());
         $this->assertInstanceOf("\Webcourse\Template", $this->fc->getView());
         $this->assertInstanceOf("\Webcourse\Register", $this->fc->getRegistry());
-        
+
     }
-    
+
     public function testRun(){
 
         $this->fc->init();
-        
+
         $request = new \Webcourse\Request();
         $request->setPath("/");
-        
+
         $this->fc->setRequest($request);
         $this->fc->run();
-        
+
         $response = $this->fc->getResponse();
         $content = $response->getContent();
-        
+
         $this->assertEquals("IndexController:indexAction", $content);
     }
-    
+
 }
 

@@ -14,8 +14,9 @@ class ResponseCest
     // tests
     public function tryToTest(FrameworkTester $I)
     {
-        $I->sendGET("response.php", array('code' => 500, 'headers' => array("pass"=>"qwerty"), 'cookies'=>array("key"=>"value"), 'contend'=>'ldshcowdlahindsljhfLSAkhcda'));
+        $I->sendGET("response.php", array('code' => 500, 'headers' => array("pass"=>"qwerty"), 'cookies'=>array("key"=>"value"), 'content'=>'ldshcowdlahindsljhfLSAkhcda'));
         $I->seeResponseCodeIs(500);
-        $requestTest = json_decode($I->grabResponse(), true);
+        $I->see('ldshcowdlahindsljhfLSAkhcda');
+//        $I->seeCookie('key: qwerty');
     }
 }

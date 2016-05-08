@@ -45,7 +45,7 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
     }
     
     
-    public function testHeders(){
+    public function testHeaders(){
         
     }
 
