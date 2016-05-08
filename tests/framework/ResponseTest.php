@@ -25,29 +25,27 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 
         
         
-        $response = new \Webcourse\Response();
-        $this->assertInstanceOf("\Webcourse\Response", $response);
-        $response->setCode(200);
-        $code = $response->getCode();
-        $this->assertInternalType("int", $code);
+//        $response = new \Webcourse\Response();
+//        $this->assertInstanceOf("\Webcourse\Response", $response);
+//        $response->setCode(300);
+//        $code = $response->getCode();
+//        $this->assertInternalType("int", $code);
 
     }
     
-//    public function testSend(){
-//        $response = new \Webcourse\Response();
-//        $response->setHeaders(array("X-APIBEST-DEV" => "Serg"));
-//        $response->setContent("Hello world");
-//        ob_start();
-//        $response->send();
-//        $html = ob_get_contents();
-//        ob_end_clean();
-//        $this->assertEquals("Hello world",$html);
-//        $header = $response->getHeaders();
-//        print_r( $header);
-//
-//    }
-    public function testHeders(){
+    
+    
+    public function testSend(){
+        $response = new \Webcourse\Response();
+        $response->fillResponse(array('code' => 500, 'headers' => array("pass"=>"qwerty"), 'cookies'=>array("key"=>"value"), 'content'=>'Hello world'));
+        $this->assertEquals(500, $response->getCode());
+        $this->assertEquals("Hello world", $response->getContent());
+        $this->assertEquals(array("pass"=>"qwerty"), $response->getHeaders());
+        $this->assertEquals(array("key"=>"value"), $response->getCookies());
     }
+    
+    
+    public function test
 
 
 }

@@ -31,11 +31,30 @@ class Response
 
 
 
-    public function send($response){
-        $this->setCode($response);
+    public function send(){
+        
+        http_response_code($this->getCode());
+        foreach($this->getHeaders() as $key => $value) {
+            header($key . ': ' . $value);
+            $testHeader =  array($key . ': ' . $value);
+        }
+//        $testHeader = array_merge($testHeader, );
+        foreach($this->getCookies() as $key => $value) {
+            setcookie($key . ': ' . $value);
+        }
+        $this->getContent();
 
+    }
+    
+    public function fillResponse($state){
 
-
+        if (isset($state)) {
+            $this->setCode($state['code']);
+            $this->setHeaders($state['headers']);
+            $this->setCookies($state['cookies']);
+            $this->setContent($state['content']);
+        }
+        
     }
 
     /**
@@ -51,17 +70,17 @@ class Response
     public function getCode()
     {
         return $this->code;
+        
     }
 
     /**
      * @param int $code
      */
-    public function setCode($response)
+    public function setCode($code)
     {
-        if (isset($response['code'])) {
-            $this->code = $response['code'];
+        if (isset($code)) {
+            $this->code = $code;
         }
-        http_response_code($this->code);
         
     }
 
@@ -78,12 +97,10 @@ class Response
      */
     public function setHeaders($headers)
     {
-        if (isset($response['headers'])) {
-            foreach($response['headers'] as $key => $value){
-                $this->headers($key.': '.$value);
-            }
-        }
 
+        if(isset($headers)){
+            $this->headers = $headers;
+        }
 
     }
 
