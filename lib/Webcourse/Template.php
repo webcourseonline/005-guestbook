@@ -1,20 +1,12 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: margarita
- * Date: 18.04.16
- * Time: 21:37
+ * class Template для генерация страницы из шаблона и данных, подставленных в этот шаблон
+ * $path - переменная, хранящая путь к файлу шаблона
+ * $data - переменная, хранящая данные, которые подставляются в шаблон для генерации страницы
  */
 
 namespace Webcourse;
 
-/**
- * Class Template
- *
- * generation page from a template and data therein
- *
- * @package Webcourse
- */
 class Template
 {
     /**
@@ -72,7 +64,6 @@ class Template
         return $this->data;
     }
 
-
     /**
      *
      * @param $data
@@ -81,7 +72,6 @@ class Template
     {
         return $this->data = $data;
     }
-
 
     public function setParam($param)
     {
