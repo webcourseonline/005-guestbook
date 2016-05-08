@@ -11,7 +11,7 @@ namespace Webcourse;
 /**
  * Class Template
  *
- * generation page from a template and data therein
+ * Генерация страницы из шаблона и данных, подставленных в этот шаблон
  *
  * @package Webcourse
  */
@@ -19,25 +19,21 @@ class Template
 {
     /**
      * @var array
+     *переменная, хранящая путь к файлу шаблона
      */
     protected $data;
 
 
     /**
-     * @var array
-     */
-    protected $param;
-
-    /**
      * @var string
-     *
+     *переменная, хранящая данные, которые подставляются в шаблон для генерации страницы
      */
 
     protected $path;
 
     /**
      * @param string $path
-     *
+     * Задать путь к файлу
      */
 
     public function setPath($path)
@@ -47,6 +43,7 @@ class Template
 
     /**
      * return string $path
+     * Получить путь к файлу
      */
     public function getPath()
     {
@@ -55,17 +52,17 @@ class Template
 
     /**
      * @param array $data
+     * Записать данные
      */
 
     public function setData($data)
-    {/**
-     * @param array $data
-     */
+    {
         $this->data = $data;
     }
 
     /**
      * @return array
+     * Получить данные
      */
     public function getData()
     {
@@ -76,24 +73,16 @@ class Template
     /**
      *
      * @param $data
+     * Добавление новых данных
      */
     public function addData($data)
     {
         return $this->data = $data;
     }
 
-
-    public function setParam($param)
-    {
-        $this->param = $param;
-    }
-
-    public function getParam()
-    {
-       return $this->param;
-    }
     /**
      *page rendering
+     * Рендеринг страницы
      */
     public function render()
     {
