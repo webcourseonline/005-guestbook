@@ -2,8 +2,12 @@
 
 class RequestTest extends \PHPUnit_Framework_TestCase
 {
+    protected  $request;
+    protected  $path;
     protected function setUp()
     {
+        $this->request = new \Webcourse\Request();
+        $this->request->setPath("/sfdf/sfsdf");
     }
 
     protected function tearDown()
@@ -57,15 +61,19 @@ class RequestTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("jsdhfj", $result);
     }
 
-//    public function testGetType(){
-//        $request = new \Webcourse\Request();
-//        $result = $request->getType();
-//        $this->assertInternalType("string", $result);
-//    }
+    public function testGetType(){
+        $request = new \Webcourse\Request();
+        $result = $request->getType();
+        $this->assertFalse($result, false);
+    }
+
+    public function testGetPath(){
+        $result = $this->request->getPath();
+        $this->assertTrue(is_string($result));
+    }
 
     public function testSetType(){
-        $request = new \Webcourse\Request();
-        $result = $request->setType("sgsg");
+        $result = $this->request->setType("sgsg");
         $this->assertEquals("sgsg", $result);
     }
 
