@@ -13,7 +13,7 @@ class GuestbookController extends Controller {
 
         $template = new Template();
         $template->addData(array('date' => date("Y-m-d")));
-        $template->setPath('/home/sun-ka/projects/005-guestbook/src/App/View/guestbook/index.phtml');
+        $template->setPath('../src/App/View/guestbook/index.phtml');
         $html = $template->render();
 
         $response = new Response();
