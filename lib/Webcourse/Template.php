@@ -66,6 +66,7 @@ class Template
         return $this->data;
     }
 
+
     /**
      *
      * @param $data
