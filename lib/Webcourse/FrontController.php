@@ -72,12 +72,16 @@ class FrontController
     public function __construct($configDir, $env = self::ENV_DEV, $appRoot = ".")
     {
 
-        $this->setRegistry(Register::getInstance());
-        
+
         $configName = "config_{$env}.php";
         $this->setConfigPath($configDir . "/" . $configName);
         $config = include $this->getConfigPath();
         $this->setConfig($config);
+
+        $register = Register::getInstance();
+        $this->setRegistry($register);
+        $register->setValue('config', $this->getConfig());
+        $register->setValue('front', $this);
 
         $this->appRoot = realpath($appRoot);
     

@@ -2,11 +2,12 @@
 
 namespace App\Model;
 
-use Webcourse\Model;
+ use Webcourse\Model;
 
  class Guestbook extends Model
  {
-        protected $table = 'posts';
+     protected $table = 'posts';
+
      public function getPosts($pageNum, $count = 5){
                $connection = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
                 $model = new Model($this->config);
