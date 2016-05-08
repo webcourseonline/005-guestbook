@@ -20,5 +20,6 @@ class ResponseCest
 //        $responsTest = json_decode($I->grabResponse(), true);
         $I->see('ldshcowdlahindsljhfLSAkhcda');
         $I->seeCookie('X-WEBCOURSE-DEBUG');
+        $I->seeHttpHeader('pass', 'qwerty');
     }
 }
