@@ -66,6 +66,7 @@ class Template
         return $this->data;
     }
 
+
     /**
      *
      * @param $data
@@ -80,6 +81,7 @@ class Template
      */
     public function render()
     {
+        return "fff";
     }
 
 }

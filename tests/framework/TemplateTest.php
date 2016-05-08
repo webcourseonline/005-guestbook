@@ -9,7 +9,7 @@ class TemplateTest extends \PHPUnit_Framework_TestCase
     protected function tearDown()
     {
     }
-    // tests
+
     public function testInit()
     {
 
@@ -36,7 +36,6 @@ class TemplateTest extends \PHPUnit_Framework_TestCase
         $varGetdata = $template->getData();
         $this->assertInternalType("array", $varGetdata);
     }
-
     public function testAddData ()
     {
         $template = new \Webcourse\Template();
@@ -46,13 +45,16 @@ class TemplateTest extends \PHPUnit_Framework_TestCase
         $this->assertInternalType("array", $varGetdata);
 
     }
-//    public function testRender ()
-//    {
-//        $template = new \Webcourse\Template();
-//        $template->setPath();
-//        $template->getData();
-//        //$template ->addData();
-//        $result = $template->Render;
-//        $this->assertInternalType("string", $result);
-//    }
+
+    public function testRender ()
+    {
+        $template = new \Webcourse\Template();
+        $path = "/tests/_data/template.phtml";
+        $template->setPath($path);
+        $template->getData();
+        //$template ->addData();
+        $result = $template->render();
+        $this->assertInternalType("string", $result);
+    }
 }
+

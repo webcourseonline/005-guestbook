@@ -11,9 +11,9 @@ class Router
 
     private $routes;
 
-    public function __construct()
+    public function __construct($routes)
     {
-        $this->routes = require dirname(__FILE__).'/Routs.php';
+        $this->routes = $routes;
     }
 
     public function run($uri)

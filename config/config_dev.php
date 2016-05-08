@@ -1,6 +1,6 @@
 <?php
 
-return array(
+$config['database'] = array(
     'username'  => 'root',
     'password'  => 'toor',//'test123',
 );
