@@ -27,9 +27,9 @@ class FrontControllerTest extends \PHPUnit_Framework_TestCase
     public function testEnvs(){
 
         $env = array(
-//            \Webcourse\FrontController::ENV_DEV,
-//            \Webcourse\FrontController::ENV_PROD,
-//            \Webcourse\FrontController::ENV_DEMO,
+            \Webcourse\FrontController::ENV_DEV,
+            \Webcourse\FrontController::ENV_PROD,
+            \Webcourse\FrontController::ENV_DEMO,
             \Webcourse\FrontController::ENV_TEST
         );
 

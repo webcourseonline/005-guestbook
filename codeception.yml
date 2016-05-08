@@ -20,8 +20,7 @@ extensions:
             port: 8088
             autostart: true
             documentRoot: ./tests/_data/www
-            startDelay: 1
-            phpIni: /etc/php5/cli/php.ini
+            startDelay: 0
         Codeception\Extension\Phantoman:
             path: './bin/phantomjs'
 modules:
