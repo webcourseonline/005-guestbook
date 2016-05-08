@@ -1,0 +1,9 @@
+class_name: AppTester
+modules:
+  enabled:
+    - WebDriver
+    - \Helper\App
+  config:
+    WebDriver:
+      url: 'http://127.0.0.1:8090'
+      browser: phantomjs
