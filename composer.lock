@@ -4,165 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2c2a75e17ff3b7e15fdd857263d2ad9e",
-    "content-hash": "13efa108f17775d3762e7a1ce1d05f54",
+    "hash": "6f3e42b698ed04a50b441f383757cc54",
+    "content-hash": "2ce2b34453d46c1f09b32b70653c0504",
     "packages": [
-        {
-            "name": "twbs/bootstrap",
-            "version": "v3.3.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/twbs/bootstrap.git",
-                "reference": "81df608a40bf0629a1dc08e584849bb1e43e0b7a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/81df608a40bf0629a1dc08e584849bb1e43e0b7a",
-                "reference": "81df608a40bf0629a1dc08e584849bb1e43e0b7a",
-                "shasum": ""
-            },
-            "replace": {
-                "twitter/bootstrap": "self.version"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.3.x-dev"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jacob Thornton",
-                    "email": "jacobthornton@gmail.com"
-                },
-                {
-                    "name": "Mark Otto",
-                    "email": "markdotto@gmail.com"
-                }
-            ],
-            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
-            "homepage": "http://getbootstrap.com",
-            "keywords": [
-                "JS",
-                "css",
-                "framework",
-                "front-end",
-                "less",
-                "mobile-first",
-                "responsive",
-                "web"
-            ],
-            "time": "2015-11-24 19:37:05"
-        },
-        {
-            "name": "usmanhalalit/pixie",
-            "version": "2.x-dev",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/usmanhalalit/pixie.git",
-                "reference": "35378d7acff314bf20fbd3dfa8006b1a036ffc02"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/usmanhalalit/pixie/zipball/35378d7acff314bf20fbd3dfa8006b1a036ffc02",
-                "reference": "35378d7acff314bf20fbd3dfa8006b1a036ffc02",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "usmanhalalit/viocon": "1.0.*@dev"
-            },
-            "require-dev": {
-                "mockery/mockery": "0.9.4",
-                "phpunit/phpunit": "^4.8"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Pixie": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Muhammad Usman",
-                    "email": "hi@usman.it",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Pavel Puchkin",
-                    "email": "i@neoascetic.me",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A lightweight, expressive, framework agnostic query builder for PHP.",
-            "homepage": "https://github.com/usmanhalalit/pixie",
-            "keywords": [
-                "database",
-                "mysql",
-                "postgresql",
-                "query builder",
-                "sql",
-                "sqlite"
-            ],
-            "time": "2016-04-12 11:50:49"
-        },
-        {
-            "name": "usmanhalalit/viocon",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/usmanhalalit/viocon.git",
-                "reference": "0878afee16f15355971fb95bf3c6d297aceff35d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/usmanhalalit/viocon/zipball/0878afee16f15355971fb95bf3c6d297aceff35d",
-                "reference": "0878afee16f15355971fb95bf3c6d297aceff35d",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "3.7.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Viocon": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Muhammad Usman",
-                    "email": "hi@usman.it",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A simple and flexible Dependency Injection container for PHP.",
-            "homepage": "https://github.com/usmanhalalit/viocon",
-            "keywords": [
-                "container",
-                "di",
-                "ioc",
-                "test"
-            ],
-            "time": "2013-07-13 19:54:56"
-        }
-    ],
-    "packages-dev": [
         {
             "name": "codeception/codeception",
             "version": "2.1.8",
@@ -551,47 +395,6 @@
                 "uri"
             ],
             "time": "2016-04-13 19:56:01"
-        },
-        {
-            "name": "jakoch/phantomjs-installer",
-            "version": "2.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jakoch/phantomjs-installer.git",
-                "reference": "b8ee2aac9b95f9a9ee30a05a4df4a0984a8a8b85"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/b8ee2aac9b95f9a9ee30a05a4df4a0984a8a8b85",
-                "reference": "b8ee2aac9b95f9a9ee30a05a4df4a0984a8a8b85",
-                "shasum": ""
-            },
-            "require": {
-                "ext-openssl": "*"
-            },
-            "type": "custom-installer",
-            "autoload": {
-                "psr-0": {
-                    "PhantomInstaller\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jens-André Koch",
-                    "email": "jakoch@web.de"
-                }
-            ],
-            "description": "A Composer package which installs the PhantomJS binary (Linux, Windows, Mac) into `/bin` of your project.",
-            "keywords": [
-                "binaries",
-                "headless",
-                "phantomjs"
-            ],
-            "time": "2016-01-25 16:30:30"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -1493,6 +1296,53 @@
             "time": "2015-06-21 13:59:46"
         },
         {
+            "name": "site5/phantoman",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/site5/phantoman.git",
+                "reference": "f8428a3643a6920cf1e01fe3d5cceb314e569e2f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/site5/phantoman/zipball/f8428a3643a6920cf1e01fe3d5cceb314e569e2f",
+                "reference": "f8428a3643a6920cf1e01fe3d5cceb314e569e2f",
+                "shasum": ""
+            },
+            "require": {
+                "codeception/codeception": "~2.1.0",
+                "php": ">=5.4.0"
+            },
+            "suggest": {
+                "jakoch/phantomjs-installer": "Automatically installs PhantomJS locally to your project."
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Codeception\\Extension\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grant Lucas",
+                    "email": "grant.lucas@wwwh.com"
+                }
+            ],
+            "description": "The Codeception extension for automatically starting and stopping PhantomJS when running tests.",
+            "homepage": "https://github.com/site5/phantoman",
+            "keywords": [
+                "codeception",
+                "extension",
+                "headless",
+                "phantomjs"
+            ],
+            "time": "2016-04-14 14:12:08"
+        },
+        {
             "name": "symfony/browser-kit",
             "version": "v3.0.5",
             "source": {
@@ -1934,6 +1784,243 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2016-03-04 07:55:57"
+        },
+        {
+            "name": "twbs/bootstrap",
+            "version": "v3.3.6",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "81df608a40bf0629a1dc08e584849bb1e43e0b7a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/81df608a40bf0629a1dc08e584849bb1e43e0b7a",
+                "reference": "81df608a40bf0629a1dc08e584849bb1e43e0b7a",
+                "shasum": ""
+            },
+            "replace": {
+                "twitter/bootstrap": "self.version"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                },
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                }
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "homepage": "http://getbootstrap.com",
+            "keywords": [
+                "JS",
+                "css",
+                "framework",
+                "front-end",
+                "less",
+                "mobile-first",
+                "responsive",
+                "web"
+            ],
+            "time": "2015-11-24 19:37:05"
+        },
+        {
+            "name": "usmanhalalit/pixie",
+            "version": "2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/usmanhalalit/pixie.git",
+                "reference": "35378d7acff314bf20fbd3dfa8006b1a036ffc02"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/usmanhalalit/pixie/zipball/35378d7acff314bf20fbd3dfa8006b1a036ffc02",
+                "reference": "35378d7acff314bf20fbd3dfa8006b1a036ffc02",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "usmanhalalit/viocon": "1.0.*@dev"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.4",
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Pixie": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Muhammad Usman",
+                    "email": "hi@usman.it",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Pavel Puchkin",
+                    "email": "i@neoascetic.me",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A lightweight, expressive, framework agnostic query builder for PHP.",
+            "homepage": "https://github.com/usmanhalalit/pixie",
+            "keywords": [
+                "database",
+                "mysql",
+                "postgresql",
+                "query builder",
+                "sql",
+                "sqlite"
+            ],
+            "time": "2016-04-12 11:50:49"
+        },
+        {
+            "name": "usmanhalalit/viocon",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/usmanhalalit/viocon.git",
+                "reference": "0878afee16f15355971fb95bf3c6d297aceff35d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/usmanhalalit/viocon/zipball/0878afee16f15355971fb95bf3c6d297aceff35d",
+                "reference": "0878afee16f15355971fb95bf3c6d297aceff35d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Viocon": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Muhammad Usman",
+                    "email": "hi@usman.it",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple and flexible Dependency Injection container for PHP.",
+            "homepage": "https://github.com/usmanhalalit/viocon",
+            "keywords": [
+                "container",
+                "di",
+                "ioc",
+                "test"
+            ],
+            "time": "2013-07-13 19:54:56"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "codeception/phpbuiltinserver",
+            "version": "v1.2.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tiger-seo/PhpBuiltinServer.git",
+                "reference": "53cd8fc4b1134e9e2c1a6d7478490db11160e323"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tiger-seo/PhpBuiltinServer/zipball/53cd8fc4b1134e9e2c1a6d7478490db11160e323",
+                "reference": "53cd8fc4b1134e9e2c1a6d7478490db11160e323",
+                "shasum": ""
+            },
+            "require": {
+                "codeception/codeception": "~2.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Codeception": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "tiger-seo",
+                    "email": "tiger.seo@gmail.com"
+                }
+            ],
+            "description": "PhpBuiltinServer extension for Codeception",
+            "keywords": [
+                "codeception"
+            ],
+            "time": "2016-01-14 00:29:41"
+        },
+        {
+            "name": "jakoch/phantomjs-installer",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jakoch/phantomjs-installer.git",
+                "reference": "b8ee2aac9b95f9a9ee30a05a4df4a0984a8a8b85"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jakoch/phantomjs-installer/zipball/b8ee2aac9b95f9a9ee30a05a4df4a0984a8a8b85",
+                "reference": "b8ee2aac9b95f9a9ee30a05a4df4a0984a8a8b85",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*"
+            },
+            "type": "custom-installer",
+            "autoload": {
+                "psr-0": {
+                    "PhantomInstaller\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jens-André Koch",
+                    "email": "jakoch@web.de"
+                }
+            ],
+            "description": "A Composer package which installs the PhantomJS binary (Linux, Windows, Mac) into `/bin` of your project.",
+            "keywords": [
+                "binaries",
+                "headless",
+                "phantomjs"
+            ],
+            "time": "2016-01-25 16:30:30"
         }
     ],
     "aliases": [],

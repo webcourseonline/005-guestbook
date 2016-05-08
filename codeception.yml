@@ -12,6 +12,18 @@ settings:
 extensions:
     enabled:
         - Codeception\Extension\RunFailed
+        - Codeception\Extension\PhpBuiltinServer
+        - Codeception\Extension\Phantoman
+    config:
+        Codeception\Extension\PhpBuiltinServer:
+            hostname: 127.0.0.1
+            port: 8088
+            autostart: true
+            documentRoot: ./tests/_data/www
+            startDelay: 1
+            phpIni: /etc/php5/cli/php.ini
+        Codeception\Extension\Phantoman:
+            path: './bin/phantomjs'
 modules:
     config:
         Db:
@@ -19,15 +31,8 @@ modules:
             user: ''
             password: ''
             dump: tests/_data/dump.sql
-    config:
         PhpBrowser:
-            url: http://localhost:8000
-extensions:
-    enabled:
-        - Codeception\Extension\PhpBuiltinServer
-    config:
-        Codeception\Extension\PhpBuiltinServer:
-            hostname: localhost
-            port: 8000
-            documentRoot: tests/_data
-            startDelay: 1
+            url: http://127.0.0.1:8088
+        WebDriver:
+             url: 'http://127.0.0.1:8088/'
+             browser: phantomjs

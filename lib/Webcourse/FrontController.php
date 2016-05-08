@@ -14,11 +14,12 @@ class FrontController
     const ENV_PROD = 'prod';
     const ENV_DEMO = 'demo';
     const ENV_DEV = 'dev';
+    const ENV_TEST = 'test';
 
-//    /**
-//     * @var 
-//     */
-//    protected $router;
+    /**
+     * @var 
+     */
+    protected $router;
 
     /**
      * @var Request
@@ -58,7 +59,9 @@ class FrontController
         
         $configName = "config_{$env}.php";
         $this->setConfigPath($configDir . "/" . $configName);
-        
+        $this->config = include $this->getConfigPath();
+        $this->router = new Router($this->config['routes']);
+
     }
 
     /**
@@ -67,12 +70,11 @@ class FrontController
     public function init()
     {
         
-        $this->setDb(new Model());
-        $this->setConfig(array());
+        $this->setDb(new Model($this->config['database']));
         $this->setResponse(new Response());
         $this->setRequest(new Request());
         $this->setView(new Template());
-        
+
         if ($this->getDb() instanceof Model
             && $this->getRequest() instanceof Request
             && $this->getResponse() instanceof Response
@@ -83,6 +85,13 @@ class FrontController
             return false;
         }
 
+    }
+    
+    public function run(){
+
+        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $runConfig = $this->router->run($path);
+        
     }
 
     /**

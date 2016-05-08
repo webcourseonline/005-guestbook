@@ -7,24 +7,52 @@
  */
 
 namespace Webcourse;
-use Pixie\QueryBuilder\QueryBuilderHandler;
+use Pixie\Connection;
+use PDO;
+//use Pixie\QueryBuilder\QueryBuilderHandler;
+
 
 class Model
 {
-    public function __construct(){
+
+    /**
+     * @var Connection
+     */
+    protected $connect;
+    /**
+     * @var array
+     */
+    public $data;
+    /**
+     * @var string
+     */
+    public $table;
+    public $id;
+
+
+    public function __construct($config){
+
+        $this->config = $config;
+        $this->connect = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
 
     }
     public function create($table, array $data){
 
+        $id = $this->connect->table('posts')->insert($data);
+        return (integer)$id;
     }
     public function read($table, $id){
 
+
     }
     public function update($table, $id, array $data){
-
+        $data_array = $this->connect->table('posts')->where('id','=', $id);
+        $data_array->update($data);
+       //    return $data_array->save();
     }
     public function delete($table, $id){
-
+        $data_array = $this->connect->table('posts')->where('id','=', $id);
+        $data_array->delete();
     }
 
 

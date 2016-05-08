@@ -1,7 +1,10 @@
 class_name: FrameworkTester
 modules:
     enabled:
-        - PhpBrowser:
-              url: http://127.0.0.1:8080
-              browser: PhpBrowser
         - \Helper\Framework
+        - Asserts
+        - PhpBrowser
+        - REST:
+            url: http://127.0.0.1:8088/
+            depends: PhpBrowser
+
