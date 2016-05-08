@@ -17,7 +17,6 @@ class GuestbookCest
     // tests
     public function tryToOpenGuestbook(AppTester $I)
     {
-
         $I->amOnPage("/guestbook");
         $I->makeScreenshot("screen");
         $I->see(date("Y-m-d"));
