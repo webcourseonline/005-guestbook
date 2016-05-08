@@ -20,14 +20,19 @@ class Template
     /**
      * @var array
      */
-    public $data;
+    protected $data;
 
+
+    /**
+     * @var array
+     */
+    protected $param;
 
     /**
      * @var string
      *
      */
-    public $path = "/tests/_data/template.phtml";
+    protected $path = "/tests/_data/template.phtml";
 
     /**
      * @param string $path
@@ -76,12 +81,29 @@ class Template
        return $this->data = $data;
     }
 
+
+    public function setParam($param)
+    {
+        $this->param = $param;
+    }
+
+    public function getParam()
+    {
+       return $this->param;
+    }
     /**
      *page rendering and output buffering
      */
     public function render()
     {
-        return "fff";
+        ob_start();
+        if (file_exists($this->path)
+            && is_file($this->path)) {
+            $template = require $this->path;
+            return $template;
+        }
+
+        ob_end_flush();
     }
 
 }
