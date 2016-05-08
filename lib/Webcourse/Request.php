@@ -18,11 +18,6 @@ class Request
     protected  $cookies;
     protected  $type;
 
-    public     $init;
-//    public     $dat_params;
-//    public     $dat_headers;
-//    public     $new_cookies;
-//    public     $new_type;
     /**
      * Request constructor.
      */
@@ -83,8 +78,8 @@ class Request
     /**
      * $params
      */
-    public function addParams($dat_params){
-        $this->params = array_merge($this->params, $dat_params);
+    public function addParams($paramsData){
+        $this->params = array_merge($this->params, $paramsData);
         return $this->params;
     }
 
@@ -95,16 +90,16 @@ class Request
         return $this->headers;
     }
 
-    public function addHeaders($dat_headers){
-        $this->headers = array_merge($this->headers, $dat_headers);
+    public function addHeaders($headersData){
+        $this->headers = array_merge($this->headers, $headersData);
         return $this->headers;
     }
     public function getCookies(){
         return $this->cookies;
     }
 
-    public function setCookies($new_cookies){
-        $this->cookies = $new_cookies;
+    public function setCookies($cookiesData){
+        $this->cookies = $cookiesData;
         return $this->cookies;
     }
 
@@ -112,8 +107,8 @@ class Request
         return $this->type;
     }
 
-    public function setType($new_type){
-        $this->type = $new_type;
+    public function setType($typeData){
+        $this->type = $typeData;
         return $this->type;
     }
 
