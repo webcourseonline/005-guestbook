@@ -33,19 +33,19 @@ class ResponseTest extends \PHPUnit_Framework_TestCase
 
     }
     
-    public function testSend(){
-        $response = new \Webcourse\Response();
-        $response->setHeaders(array("X-APIBEST-DEV" => "Serg"));
-        $response->setContent("Hello world");
-        ob_start();
-        $response->send();
-        $html = ob_get_contents();
-        ob_end_clean();
-        $this->assertEquals("Hello world",$html);
-        $header = $response->getHeaders();
-        print_r( $header);
-
-    }
+//    public function testSend(){
+//        $response = new \Webcourse\Response();
+//        $response->setHeaders(array("X-APIBEST-DEV" => "Serg"));
+//        $response->setContent("Hello world");
+//        ob_start();
+//        $response->send();
+//        $html = ob_get_contents();
+//        ob_end_clean();
+//        $this->assertEquals("Hello world",$html);
+//        $header = $response->getHeaders();
+//        print_r( $header);
+//
+//    }
     public function testHeders(){
     }
 
