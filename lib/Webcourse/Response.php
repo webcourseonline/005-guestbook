@@ -14,7 +14,7 @@ class Response
     /**
      * @var int 
      */
-    protected $code;
+    protected $code = 200;
     /**
      * @var array
      */
@@ -30,8 +30,11 @@ class Response
 
 
 
-    public function send(){
-        
+    public function send($response){
+        $this->setCode($response);
+
+
+
     }
 
     /**
@@ -52,9 +55,12 @@ class Response
     /**
      * @param int $code
      */
-    public function setCode($code)
+    public function setCode($response)
     {
-        $this->code = $code;
+        if (isset($response['code'])) {
+            $this->code = $response['code'];
+        }
+        http_response_code($this->code);
         
     }
 
@@ -71,7 +77,13 @@ class Response
      */
     public function setHeaders($headers)
     {
-        $this->headers = $headers;
+        if (isset($response['headers'])) {
+            foreach($response['headers'] as $key => $value){
+                $this->headers($key.': '.$value);
+            }
+        }
+
+
     }
 
     /**
