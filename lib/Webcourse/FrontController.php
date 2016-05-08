@@ -52,16 +52,34 @@ class FrontController
     protected $view = false;
 
     /**
-     * FrontController constructor.
+     * @var Register
      */
-    public function __construct($configDir, $env = self::ENV_DEV)
+    protected $registry;
+
+    /**
+     * @var string
+     */
+    private $appRoot;
+
+    /**
+     * FrontController constructor.
+     * 
+     * @param $configDir
+     * @param string $env
+     * @param string $appRoot
+     */
+    public function __construct($configDir, $env = self::ENV_DEV, $appRoot = ".")
     {
+
+        $this->setRegistry(Register::getInstance());
         
         $configName = "config_{$env}.php";
         $this->setConfigPath($configDir . "/" . $configName);
-        $this->config = include $this->getConfigPath();
-        $this->router = new Router($this->config['routes']);
+        $config = include $this->getConfigPath();
+        $this->setConfig($config);
 
+        $this->appRoot = realpath($appRoot);
+    
     }
 
     /**
@@ -69,10 +87,16 @@ class FrontController
      */
     public function init()
     {
-        
-        $this->setDb(new Model($this->config['database']));
+
+        $routes = $this->getConfig()['routes'];
+        $this->setRouter(new Router($routes));
+
+        $connection = $this->getConfig()['database'];
+        $this->setDb(new Model($connection));
+
         $this->setResponse(new Response());
         $this->setRequest(new Request());
+
         $this->setView(new Template());
 
         if ($this->getDb() instanceof Model
@@ -89,9 +113,34 @@ class FrontController
     
     public function run(){
 
-        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        $path = $this->getRequest()->getPath();
         $runConfig = $this->router->run($path);
+
+        $path = $this->appRoot . "/Controllers/" . $runConfig['controllerName'] . ".php";
+        $controllerName = "Controllers\\" . $runConfig['controllerName'];
+        $controllerFilePath = realpath($path);
+
+        if ($controllerFilePath){
+
+            require_once $controllerFilePath;
+
+            /**
+             * @var Controller $controller
+             */
+            $controller = new $controllerName();
+            $controller->setRegistry($this->getRegistry());
+            $this->setResponse($controller->$runConfig['actionName']($this->getRequest()));
+            
+        } else {
+            throw new \Exception("Controller file {$path} not found");
+        }
+
+    }
+    
+    public function send(){
         
+//        $response = $this->getResponse();
+//        $response->send();
     }
 
     /**
@@ -189,5 +238,45 @@ class FrontController
     {
         $this->configPath = $configPath;
     }
-    
+
+    /**
+     * @return mixed
+     */
+    public function getRouter()
+    {
+        return $this->router;
+    }
+
+    /**
+     * @param mixed $router
+     */
+    public function setRouter($router)
+    {
+        $this->router = $router;
+    }
+
+    /**
+     * @return Register
+     */
+    public function getRegistry()
+    {
+        return $this->registry;
+    }
+
+    /**
+     * @param Register $registry
+     */
+    public function setRegistry($registry)
+    {
+        $this->registry = $registry;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAppRoot()
+    {
+        return $this->appRoot;
+    }
+
 }
