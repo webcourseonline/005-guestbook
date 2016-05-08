@@ -36,13 +36,14 @@ class Response
         http_response_code($this->getCode());
         foreach($this->getHeaders() as $key => $value) {
             header($key . ': ' . $value);
-            $testHeader =  array($key . ': ' . $value);
+//            $testHeaders =  array($key . ': ' . $value);
         }
 //        $testHeader = array_merge($testHeader, );
         foreach($this->getCookies() as $key => $value) {
             setcookie($key . ': ' . $value);
+//            $testCookies = ($key . ': ' . $value);
         }
-        $this->getContent();
+        print $this->getContent();
 
     }
     
