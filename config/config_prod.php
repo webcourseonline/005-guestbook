@@ -6,7 +6,7 @@ return array(
         'host'      => '127.0.0.1',
         'database'  => 'test',//test
         'username'  => 'root',
-        'password'  => '',//'test123',
+        'password'  => 'z7a7s7x7',//'test123',
         'charset'   => 'utf8', // Optional
         'collation' => 'utf8_general_ci', // Optional
         'prefix'    => '', // Table prefix, optional
@@ -18,6 +18,7 @@ return array(
     'routes' => array (
         'index/index' => 'index/index',
         'index/test' => 'index/test',
+        'guestbook' => 'guestbook/index',
         'test' => 'index/test',
     )
 );

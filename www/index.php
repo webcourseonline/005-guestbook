@@ -10,3 +10,4 @@ $srcPath = realpath($dir . "/../src");
 $app = new \Webcourse\FrontController($configPath, \Webcourse\FrontController::ENV_DEV, $srcPath);
 $app->init();
 $app->run();
+$app->send();
