@@ -11,6 +11,7 @@
     },
     "require-dev": {
         "codeception/codeception": "*",
+        "codeception/phpbuiltinserver": "*",
         "jakoch/phantomjs-installer": "2.1.1"
     },
     "scripts": {

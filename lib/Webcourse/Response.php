@@ -31,7 +31,10 @@ class Response
 
 
     public function send(){
-        
+        foreach ($this->getHeaders() as $key => $value){
+            header($key . ': ' . $value);
+        }
+        echo $this->getContent();
     }
 
     /**

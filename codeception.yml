@@ -19,3 +19,15 @@ modules:
             user: ''
             password: ''
             dump: tests/_data/dump.sql
+    config:
+        PhpBrowser:
+            url: http://localhost:8000
+extensions:
+    enabled:
+        - Codeception\Extension\PhpBuiltinServer
+    config:
+        Codeception\Extension\PhpBuiltinServer:
+            hostname: localhost
+            port: 8000
+            documentRoot: tests/_data
+            startDelay: 1
