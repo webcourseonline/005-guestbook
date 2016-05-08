@@ -1,6 +1,6 @@
 <?php
 
 $parentConfig = include "config_dev.php";
-$parentConfig['database']['password'] = 'vvv333';
+$parentConfig['database']['password'] = '';
 
 return $parentConfig;
