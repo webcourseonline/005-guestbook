@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models;
+namespace App\Model;
 
 use Webcourse\Model;
 
- class Posts extends Model
+ class Guestbook extends Model
  {
         protected $table = 'posts';
      public function getPosts($pageNum, $count = 5){
