@@ -21,6 +21,8 @@ class Router
         if ($uri == '/') {
             return ['controllerName' => self::CONTROLLER,
                     'actionName' => self::ACTION];
+        } else {
+            $uri = substr($uri, 1);
         }
 
         foreach ($this->routes as $uriPattern => $path) {
