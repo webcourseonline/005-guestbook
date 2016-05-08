@@ -32,7 +32,8 @@ class Template
      * @var string
      *
      */
-    protected $path = "/tests/_data/template.phtml";
+
+    protected $path;
 
     /**
      * @param string $path
@@ -45,7 +46,7 @@ class Template
     }
 
     /**
-     * return string (path)
+     * return string $path
      */
     public function getPath()
     {
@@ -78,7 +79,7 @@ class Template
      */
     public function addData($data)
     {
-       return $this->data = $data;
+        return $this->data = $data;
     }
 
 
@@ -92,18 +93,22 @@ class Template
        return $this->param;
     }
     /**
-     *page rendering and output buffering
+     *page rendering
      */
     public function render()
     {
-        ob_start();
-        if (file_exists($this->path)
-            && is_file($this->path)) {
-            $template = require $this->path;
-            return $template;
+        try {
+            if (file_exists($this->path)
+                && is_file($this->path)) {
+                $template = file_get_contents($this->path);
+                return $template;
+            }
+        } catch (\Exception $e) {
+            return $e->getMessage() ."\n<br/>". $e->getTraceAsString();
         }
 
-        ob_end_flush();
+
+
     }
 
 }

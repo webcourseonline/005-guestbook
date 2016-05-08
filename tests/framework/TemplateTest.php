@@ -2,8 +2,14 @@
 
 class TemplateTest extends \PHPUnit_Framework_TestCase
 {
+    protected function setUp()
+    {
+    }
 
-    // tests
+    protected function tearDown()
+    {
+    }
+
     public function testInit()
     {
 
@@ -30,8 +36,6 @@ class TemplateTest extends \PHPUnit_Framework_TestCase
         $varGetdata = $template->getData();
         $this->assertInternalType("array", $varGetdata);
     }
-
-
     public function testAddData ()
     {
         $template = new \Webcourse\Template();
@@ -41,14 +45,15 @@ class TemplateTest extends \PHPUnit_Framework_TestCase
         $this->assertInternalType("array", $varGetdata);
 
     }
+
+
     public function testRender ()
     {
         $template = new \Webcourse\Template();
-        $path = "/tests/_data/template.phtml";
+        $path =  realpath("tests/_data/src/Views/test/template.phtml");
         $template->setPath($path);
-        $template->getData();
-        //$template ->addData();
         $result = $template->render();
         $this->assertInternalType("string", $result);
     }
 }
+
