@@ -3,7 +3,7 @@
 class TemplateTest extends \PHPUnit_Framework_TestCase
 {
 
-    // tests 333333
+    // tests
     public function testInit()
     {
 
@@ -12,50 +12,43 @@ class TemplateTest extends \PHPUnit_Framework_TestCase
 
 
     }
-    public function testSetPath ()
-    {
+    public function testSetPath (){
         $template = new \Webcourse\Template();
-        $result = $this->path;
-        $this->assertInternalType("string", $result);
-        $this->assertEquals($result);
-
-    }
-    public function testGetPath ()
-    {
-        $template = new \Webcourse\Template();
-        $template->setPath($this->path);
-        $result = $template->getPath();
-        $this->assertInternalType("string", $result);
-        $this->assertEquals($this->path, $result);
+        $path = "/tests/_data/template.phtml";
+        $template->setPath($path);
+        $varGet = $template->getPath();
+        $this->assertInternalType("string", $varGet);
+        $this->assertEquals($path, $varGet);
 
     }
 
     public function testSetData ()
     {
         $template = new \Webcourse\Template();
-
+        $data = array();
+        $template->setData($data);
+        $varGetdata = $template->getData();
+        $this->assertInternalType("array", $varGetdata);
     }
 
-    public function testGetData ()
-    {
-        $template = new \Webcourse\Template();
 
-    }
     public function testAddData ()
     {
         $template = new \Webcourse\Template();
-        $data = (array("paramName" => "paramY"));
-        $result = $template->addData($data);
-        $this->assertEquals($data, $result);
+        $data = array();
+        $template->setData($data);
+        $varGetdata = $template->addData($data);
+        $this->assertInternalType("array", $varGetdata);
 
     }
     public function testRender ()
     {
         $template = new \Webcourse\Template();
-        $template->setPath();
+        $path = "/tests/_data/template.phtml";
+        $template->setPath($path);
         $template->getData();
         //$template ->addData();
-        $result = $template->Render;
+        $result = $template->render();
         $this->assertInternalType("string", $result);
     }
 }

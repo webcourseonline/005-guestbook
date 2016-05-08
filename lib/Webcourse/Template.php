@@ -10,10 +10,11 @@ namespace Webcourse;
 
 /**
  * Class Template
- * @package Webcourse
+ *
  * generation page from a template and data therein
+ *
+ * @package Webcourse
  */
-
 class Template
 {
     /**
@@ -60,9 +61,9 @@ class Template
     /**
      * @return array
      */
-    public function getData($data)
+    public function getData()
     {
-        return $this->data = $data;
+        return $this->data;
     }
 
     /**
@@ -71,7 +72,7 @@ class Template
      */
     public function addData($data)
     {
-        $this->data = $data;
+       return $this->data = $data;
     }
 
     /**
@@ -79,5 +80,7 @@ class Template
      */
     public function render()
     {
+        return "fff";
     }
+
 }
