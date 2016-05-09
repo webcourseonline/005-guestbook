@@ -71,27 +71,11 @@ class Model
         $dataArrayNeedNext = [];
         $data_array = $this->connect->table($table)->get();
         foreach ($data_array as $item) {
-
             $data = get_object_vars($item);
-//            $aa = json_encode($data, true, 2);
             $dataArrayNeedNext[] = $data;
-
         }
         return $dataArrayNeedNext;
 
-
-           // $a = (array)$item;
-//            foreach ($item as $item1) {
-//                $array1 = (array)$item1;
-//                var_dump($array1);
-//            }
-            var_dump($aa);
-//        }
-//        $data = json_encode($data_array);
-//        $aa = json_decode($data, true, 2);
-
-        var_dump($aa);
-        return $aa;
     }
     public function update($table, $id, array $data){
         $data_array = $this->connect->table($table)->where('id','=', $id);
