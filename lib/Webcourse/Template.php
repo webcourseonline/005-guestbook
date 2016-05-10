@@ -35,11 +35,16 @@ class Template
     /**
      * Задать путь к файлу шаблона
      *
-     * @param string $path
+     * @param $path
+     * @return bool|string
      */
     public function setPath($path)
     {
-        $this->path = $path;
+        if (is_string($path)) {
+            return $this->path = $path;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -53,17 +58,22 @@ class Template
     }
 
     /**
-     * Получить данные
+     * Задать данные для генерации страницы
      *
      * @param array $data
+     * @return bool|string
      */
     public function setData($data)
     {
-        $this->data = $data;
+        if (is_array($data)) {
+            return $this->data = $data;
+        } else {
+            return false;
+        }
     }
 
     /**
-     * Передать данные для генерации страницы
+     * Получить данные для генерации страницы
      *
      * @return array
      */
@@ -72,17 +82,24 @@ class Template
         return $this->data;
     }
 
-
     /**
      * Добавить новые данные
      *
      * @param $data
+     * @return bool|string
      */
     public function addData($data)
     {
-        $varAddData = $this->getData();
-        $result = array_merge($varAddData, $data);
-        $this->setData($result);
+        if (is_array($data)) {
+            $varAddData = $this->getData();
+            $result = array_merge($varAddData, $data);
+            $this->setData($result);
+            return $result;
+        } else {
+            return false;
+        }
+
+
     }
 
 
