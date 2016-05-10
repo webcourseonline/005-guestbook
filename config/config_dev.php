@@ -2,7 +2,7 @@
 
 $config['database'] = array(
     'username'  => 'root',
-    'password'  => '',//'test123',
+    'password'  => '1111',//'test123',
 );
 
 $parentConfig = include "config_prod.php";

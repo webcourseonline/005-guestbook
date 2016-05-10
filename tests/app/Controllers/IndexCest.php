@@ -12,7 +12,9 @@ class IndexCest
         
         $I->amOnPage("/");
         $I->see("IndexController:indexAction");
-            
+        $I->seeInTitle('Guestbook');
+
+
         
     }
 }
