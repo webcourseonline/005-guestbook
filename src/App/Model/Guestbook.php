@@ -10,9 +10,10 @@ namespace App\Model;
 
      public function getPosts($pageNum, $count = 5){
                $connection = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
-                $model = new Model($this->config);
+         $countAllPosts = $this->read($this->table);
+//         $countAllPosts = new Model::$this->read($this->table);
 
-                $countAllPosts = $model->read($this->table);
+               // $countAllPosts = $model->read($this->table);
                 $array1 = [];
 
                 $countPostBeforePageNum = ($pageNum - 1)*$count;//кол-во записей c необходимой страницы

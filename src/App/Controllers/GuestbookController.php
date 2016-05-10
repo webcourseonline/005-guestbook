@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Model\Guestbook;
 use Webcourse\Controller;
 use Webcourse\Response;
 use Webcourse\Template;
@@ -15,7 +14,7 @@ class GuestbookController extends Controller {
 
         $config = $this->getRegistry();
         $model = new Guestbook();
-//        $message = $model->read();
+        $message = $model->getPosts(1);
         $template = new Template();
         $template->addData(array('savedMessages' => $message));
         $template->setPath(__DIR__.'/../View/guestbook/index.phtml');

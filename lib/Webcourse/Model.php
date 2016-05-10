@@ -68,9 +68,14 @@ class Model
         /**
          * @var QueryBuilderHandler $data_array
          */
+        $dataArrayNeedNext = [];
         $data_array = $this->connect->table($table)->get();
-        $data = json_encode($data_array);
-        return json_decode($data, true);
+        foreach ($data_array as $item) {
+            $data = get_object_vars($item);
+            $dataArrayNeedNext[] = $data;
+        }
+        return $dataArrayNeedNext;
+
     }
     public function update($table, $id, array $data){
         $data_array = $this->connect->table($table)->where('id','=', $id);
