@@ -21,10 +21,6 @@ namespace App\Model;
                             $array1[] = $countAllPosts[$i];
                     }
          return [$array1, $count];
-
-
-
-
      }
 
 
