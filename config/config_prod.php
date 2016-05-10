@@ -19,6 +19,7 @@ return array(
         'index/index' => 'index/index',
         'index/test' => 'index/test',
         'guestbook' => 'guestbook/index',
+        'guestbook/writeMessage' => 'guestbook/writeMessage',
         'test' => 'index/test',
     )
 );

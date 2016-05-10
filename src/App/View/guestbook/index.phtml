@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Guestbook</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
-    <script src="js/jquery.min.js" defer></script>
-    <script src="js/bootstrap.min.js" defer></script>
-    <script src="js/script.js" defer></script>
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/bootstrap.min.js" defer></script>
+    <script src="../js/script.js" defer></script>
 </head>
 <body>
 <header class="page-header text-center"><h1>Guestbook</h1></header>
 <div class="container">
-    <form action='#' method="post">
+    <form action='/guestbook/writeMessage' method="post">
         <div class="form-group col-md-6">
             <label for="name">Name <span>*</span></label>
             <div class="input-group">
@@ -38,8 +38,9 @@
             <button type="submit" name="submit" class="btn btn-primary">Send</button>
         </div>
     </form>
-
-    <?php
+    <?php if (isset($view['server_message'])) : ?>
+         <p class = "lead text-success"><?php echo $view['server_message']; ?></p>
+    <?php endif;
     foreach ($view['savedMessages'] as $id => $record):?>
         <div class="row data">
             <div class="col-md-10">
@@ -47,10 +48,9 @@
                 <p class="message text-justify" id="<?php echo $record['id'] ?>" contenteditable="true"><?php echo $record['message']; ?></p>
             </div>
             <div class="col-md-2">
-                <button class="btn btn-xs btn-success editMessage">
-                    Edit</button>
                 <button class="btn btn-xs btn-danger deleteMessage">
-                    Delete</button>
+                    Delete
+                </button>
             </div>
         </div>
     <?php endforeach; ?>

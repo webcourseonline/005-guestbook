@@ -3,7 +3,7 @@ $(document).ready(function() {
     $(".editMessage").click(function(){
         $.ajax({
             type : 'POST',
-            url : "http://127.0.0.1:8080/index.php/",
+            url : "http://127.0.0.1:8080/guestbook/",
             data: {
                 edit: true,
                 id: $(this).parents(".data").children().children(".message").attr("id"),

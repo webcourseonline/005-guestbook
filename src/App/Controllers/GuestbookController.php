@@ -27,5 +27,21 @@ class GuestbookController extends Controller {
         return $response;
         
     }
-    
+
+    public function writeMessageAction($request)
+    {
+        $model = new Guestbook();
+//        $model->setPosts($request->getParams());
+        $message = $model->getPosts(1);
+        $template = new Template();
+        $template->addData(array('savedMessages' => $message, 'server_message' => "Message successfully sent"));
+        $template->setPath(__DIR__.'/../View/guestbook/index.phtml');
+        $html = $template->render();
+
+        $response = new Response();
+        $response->setContent($html);
+
+        return $response;
+
+    }
 }
