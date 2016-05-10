@@ -30,12 +30,11 @@ class GuestbookController extends Controller {
 
     public function writeMessageAction($request)
     {
-        $request['params'];
-        $config = $this->getRegistry();
         $model = new Guestbook();
+//        $model->setPosts($request->getParams());
         $message = $model->getPosts(1);
         $template = new Template();
-        $template->addData(array('savedMessages' => $message));
+        $template->addData(array('savedMessages' => $message, 'server_message' => "Message successfully sent"));
         $template->setPath(__DIR__.'/../View/guestbook/index.phtml');
         $html = $template->render();
 
