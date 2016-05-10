@@ -36,16 +36,17 @@ class TemplateTest extends \PHPUnit_Framework_TestCase
         $varGetdata = $template->getData();
         $this->assertInternalType("array", $varGetdata);
     }
+
     public function testAddData ()
     {
         $template = new \Webcourse\Template();
-        $data = array();
-        $template->setData($data);
-        $varGetdata = $template->addData($data);
-        $this->assertInternalType("array", $varGetdata);
-
+        $template->setData(array("test1" => "Hello"));
+        $template->addData(array("test2" => " world"));
+        $getData = $template->getData();
+        $this->assertInternalType("array", $getData);
+        $this->assertCount(2, $getData);
+//        $this->assertArrayHasKey()
     }
-
 
     public function testRender ()
     {
