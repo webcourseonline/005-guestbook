@@ -21,15 +21,17 @@ namespace App\Model;
          return $array1;
      }
     public function setPosts($data){
-        $this->create($this->table, $data);
+       $aa = $this->create($this->table, $data);
+        return $aa;
 
     }
      public function editPosts($id, $data){
-         $this->update($this->table, $id, $data);
-
+         $aa = $this->update($this->table, $id, $data);
+         return $aa;
      }
      public function deletePosts($id){
-        $this->delete($this->table, $id);
+         $aa = $this->delete($this->table, $id);
+         return $aa;
      }
 
 
