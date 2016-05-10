@@ -5,6 +5,7 @@ namespace App\Controllers;
 use Webcourse\Controller;
 use Webcourse\Response;
 use Webcourse\Template;
+use App\Model\Guestbook;
 
 class GuestbookController extends Controller {
     

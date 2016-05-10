@@ -20,6 +20,7 @@ class GuestbookCest
         $I->amOnPage("/guestbook");
         $I->makeScreenshot("screen");
         $I->see(date("Y-m-d"));
+        $I->
 
     }
 }
