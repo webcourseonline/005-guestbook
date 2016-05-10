@@ -13,7 +13,7 @@
 <body>
 <header class="page-header text-center"><h1>Guestbook</h1></header>
 <div class="container">
-    <form action='#' method="post">
+    <form action='localhost:8080/guestbook/writeMessage' method="post">
         <div class="form-group col-md-6">
             <label for="name">Name <span>*</span></label>
             <div class="input-group">
@@ -46,10 +46,9 @@
                 <p class="message text-justify" id="<?php echo $record['id'] ?>" contenteditable="true"><?php echo $record['message']; ?></p>
             </div>
             <div class="col-md-2">
-                <button class="btn btn-xs btn-success editMessage">
-                    Edit</button>
                 <button class="btn btn-xs btn-danger deleteMessage">
-                    Delete</button>
+                    Delete
+                </button>
             </div>
         </div>
     <?php endforeach; ?>

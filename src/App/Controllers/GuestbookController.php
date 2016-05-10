@@ -16,7 +16,6 @@ class GuestbookController extends Controller {
         $config = $this->getRegistry();
         $model = new Guestbook();
         $message = $model->getPosts(1);
-        var_dump($message);
         $template = new Template();
         $template->addData(array('savedMessages' => $message));
         $template->setPath(__DIR__.'/../View/guestbook/index.phtml');
@@ -29,8 +28,9 @@ class GuestbookController extends Controller {
         
     }
 
-    public function writeMessageAction($message)
+    public function writeMessageAction($request)
     {
+        $request['params'];
         $config = $this->getRegistry();
         $model = new Guestbook();
         $message = $model->getPosts(1);
