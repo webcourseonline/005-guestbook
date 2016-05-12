@@ -21,15 +21,22 @@ namespace App\Model;
          return $array1;
      }
     public function setPosts($data){
-        $this->create($this->table, $data);
+        $data1 = [];
+        $data1['name'] = $data['name'];
+        $data1['email'] =$data['email'];
+        $data1['message'] = $data['message'];
+        $data1['date'] = date("Y-m-d H:i:s");
+       $aa = $this->connect->table($this->table)->insert($data1);;
+        return $aa;
 
     }
      public function editPosts($id, $data){
-         $this->update($this->table, $id, $data);
-
+         $aa = $this->update($this->table, $id, $data);
+         return $aa;
      }
      public function deletePosts($id){
-        $this->delete($this->table, $id);
+         $aa = $this->delete($this->table, $id);
+         return $aa;
      }
 
 
