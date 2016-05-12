@@ -31,8 +31,7 @@ class GuestbookController extends Controller {
     public function writeMessageAction($request)
     {
         $model = new Guestbook();
-        var_dump($request->getParams());
-//        $model->setPosts($request->getParams());
+        $model->setPosts($request->getParams());
         $message = $model->getPosts(1);
         $template = new Template();
         $template->addData(array('savedMessages' => $message, 'server_message' => "Message successfully sent"));

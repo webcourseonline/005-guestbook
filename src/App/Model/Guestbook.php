@@ -21,7 +21,12 @@ namespace App\Model;
          return $array1;
      }
     public function setPosts($data){
-       $aa = $this->connect->table($this->table)->insert($data);;
+        $data1 = [];
+        $data1['name'] = $data['name'];
+        $data1['email'] =$data['email'];
+        $data1['message'] = $data['message'];
+        $data1['date'] = date("Y-m-d H:i:s");
+       $aa = $this->connect->table($this->table)->insert($data1);;
         return $aa;
 
     }
