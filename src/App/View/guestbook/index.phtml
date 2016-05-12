@@ -48,9 +48,9 @@
                 <p class="message text-justify" id="<?php echo $record['id'] ?>" contenteditable="true"><?php echo $record['message']; ?></p>
             </div>
             <div class="col-md-2">
-                <button class="btn btn-xs btn-danger deleteMessage">
+                <a href = '/guestbook/deleteMessage?id=<?php echo $record['id']; ?>' class="btn btn-xs btn-danger deleteMessage">
                     Delete
-                </button>
+                </a>
             </div>
         </div>
     <?php endforeach; ?>
