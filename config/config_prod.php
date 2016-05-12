@@ -20,6 +20,7 @@ return array(
         'index/test' => 'index/test',
         'guestbook' => 'guestbook/index',
         'guestbook/writeMessage' => 'guestbook/writeMessage',
+        'guestbook/deleteMessage' => 'guestbook/deleteMessage',
         'test' => 'index/test',
     )
 );
