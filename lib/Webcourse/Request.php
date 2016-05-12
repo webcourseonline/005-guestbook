@@ -12,6 +12,7 @@ namespace Webcourse;
 class Request
 {
 //internals
+    protected  $filePath;
     protected  $path;
     protected  $params;
     protected  $headers;
@@ -20,6 +21,7 @@ class Request
 
     /**
      * Request constructor.
+     * $selfInit:bool
      */
     public function __construct($selfInit = false)
     {
@@ -33,10 +35,9 @@ class Request
         }
     }
 //methods
+
     /**
-     * сбор инф. из суперглобальных массивов
-     *
-     * @param $init
+     *   Метод init() собирает информацию из суперглобальных массивов.
      */
     private function init(){
         $this->path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -54,15 +55,16 @@ class Request
         }
     }
 
-    /**
-     *
-     */
-    public function getParams(){
-        return $this->params;
-    }
 
+    public function getFilePath(){
+        $filePath = explode("/", $_SERVER['REQUEST_URI']);
+        $hhf = $filePath;
+        $this->filePath = $filePath[1];
+        return $this->filePath;
+
+    }
     /**
-     *
+     * @return mixed
      */
     public function getPath(){
         return $this->path;
@@ -76,7 +78,15 @@ class Request
     }
 
     /**
-     * $params
+     * @return array
+     */
+    public function getParams(){
+        return $this->params;
+    }
+
+    /**
+     * @param array $paramsData
+     * @return array
      */
     public function addParams($paramsData){
         $this->params = array_merge($this->params, $paramsData);
@@ -84,32 +94,78 @@ class Request
     }
 
     /**
-     *
+     * @return array
      */
     public function getHeaders(){
         return $this->headers;
     }
 
+    /**
+     * @param $headersData
+     * @return array
+     */
     public function addHeaders($headersData){
         $this->headers = array_merge($this->headers, $headersData);
         return $this->headers;
     }
+
+    /**
+     * @return array
+     */
     public function getCookies(){
         return $this->cookies;
     }
 
+    /**
+     * @param $cookiesData
+     * @return array|bool
+     */
     public function setCookies($cookiesData){
-        $this->cookies = $cookiesData;
-        return $this->cookies;
+        if (is_array($cookiesData)){
+            $this->cookies = $cookiesData;
+            return $this->cookies;
+        }
+        elseif (is_string($cookiesData)){
+            $cookiesData = explode("=", $cookiesData);
+            $this->cookies = $cookiesData;
+            return $this->cookies;
+        }
+        else{
+            return false;
+        }
     }
 
+    /**
+     * @param $addCook
+     * @return bool
+     */
+    public function addCookie($addCook){
+        if (isset($this->cookies)){
+            if (is_array($addCook)) {
+                $this->cookies = array_merge($this->cookies, $addCook);
+            }
+            elseif(is_string($addCook)){
+                $addCook = explode("=", $addCook);
+                $this->cookies = array_merge($this->cookies, $addCook);
+            }
+            else
+                return false;
+        }
+        else
+            $this->setCookies($addCook);
+    }
+
+    /**
+     * @return string
+     */
     public function getType(){
         return $this->type;
     }
 
+    /**
+     * @param $typeData
+     */
     public function setType($typeData){
         $this->type = $typeData;
-        return $this->type;
     }
-
 }
