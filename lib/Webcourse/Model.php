@@ -49,7 +49,14 @@ class Model
         /**
          * @var integer
          */
-        $id = $this->connect->table($table)->insert($data);
+        $data1 = [];
+        $data1['name'] = $data['name'];
+        $data1['email'] =$data['email'];
+        $data1['message'] = $data['message'];
+        $data1['date'] = date("Y-m-d H:i:s");
+
+
+        $id = $this->connect->table($table)->insert($data1);
         return (integer)$id;
     }
     public function readOne($table, $id){

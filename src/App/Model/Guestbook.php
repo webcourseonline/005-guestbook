@@ -21,7 +21,7 @@ namespace App\Model;
          return $array1;
      }
     public function setPosts($data){
-       $aa = $this->create($this->table, $data);
+       $aa = $this->connect->table($this->table)->insert($data);;
         return $aa;
 
     }

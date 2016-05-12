@@ -46,9 +46,9 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         $time = time();
         $this->data = array(
             'name' => $time,
-            'email' => 'May@gg.com',
-            'message' => 'hello))))',
-            'date' => date("Y-m-d H:i:s"),
+             'email' => 'zxczxc@zxczxcz',
+             'message' => 'zcxzcxzcx',
+            'submit' => ''
             );
 
         /**
@@ -68,7 +68,6 @@ class ModelTest extends \PHPUnit_Framework_TestCase
      */
     public function testReadOne($id){
         $table = 'posts';
-        //$connect = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
         $model = new \Webcourse\Model($this->config);
         $result = $model->readOne($table, $id);
         $this->assertCount(1, $result);
@@ -97,7 +96,6 @@ class ModelTest extends \PHPUnit_Framework_TestCase
         /**
          * @var $connect \Pixie\QueryBuilder\QueryBuilderHandler
          */
-        $connect = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
         $model = new \Webcourse\Model($this->config);
         $model->update($table, $id, $this->data1);
         $this->assertTrue(true);
@@ -109,7 +107,6 @@ class ModelTest extends \PHPUnit_Framework_TestCase
      */
     public function testDelete($id){
         $table = 'posts';
-       // $connect = (new \Pixie\Connection('mysql', $this->config))->getQueryBuilder();
         $model = new \Webcourse\Model($this->config);
         $model->delete($table, $id);
 
