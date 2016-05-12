@@ -3,9 +3,7 @@ bin/
 composer.phar
 composer.lock
 vendor/
-config/config_test.php
-config/config_prod.php
-config/config_dev.php
+config/*
 
 tests/_log/*
 tests/_temp/*
